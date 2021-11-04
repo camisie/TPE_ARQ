@@ -78,7 +78,7 @@ void hangmanHandler(int args, char argv[][25]) {
 
 // }
 
-void printChessMenu() {
+void printHangmanMenu() {
     int color = 0xf03fcd;
     printc("hangman new, -n", color);
     printc(": ", color);
@@ -104,10 +104,21 @@ char askYesNo() {
     if (ans == 'n') {
         println("Need help? Enter hangman help or hangman -h to display a menu of the different options from which you can choose");
     } else if (ans == 'Y' || ans == 'y') {
-        greeting(); //starting a new chess game
-        runChess(0);
+        greeting(); //starting a new hangman game
+        runHangman(0);
     }
     return ans;
+}
+
+void showLogo()
+{
+      printf("\t\t--------------------------------------------\n");
+      printf("\t\t| #  #   #   #   #  #### #   #   #   #   # |\n");
+      printf("\t\t| #  #  # #  ##  # #     ## ##  # #  ##  # |\n");
+      printf("\t\t| #### ##### # # # #  ## # # # ##### # # # |\n");
+      printf("\t\t| #  # #   # #  ## #   # #   # #   # #  ## |\n");
+      printf("\t\t| #  # #   # #   #  ###  #   # #   # #   # |\n");
+      printf("\t\t--------------------------------------------\n");
 }
 
 void greeting() {
@@ -126,13 +137,13 @@ void greeting() {
     printcFrom(" \\______||__|  |__| |_______|_______/    |_______/    ", heigth += SCREEN_HEIGTH, MIDDLE_TITLE,
                YELLOW_GREETING);
     heigth += SCREEN_HEIGTH * 2;
-    printFrom("In an OS far, far away...", heigth += SCREEN_HEIGTH, 416);
+    // printFrom("In an OS far, far away...", heigth += SCREEN_HEIGTH, 416);
     heigth += SCREEN_HEIGTH;
     printFrom("Instructions:", heigth += SCREEN_HEIGTH, 0);
     printFrom("Press ENTER to begin your adventure", heigth += SCREEN_HEIGTH, 0);
     printFrom("Press \"q\" to quit without saving or \"p\" to pause your game", heigth += SCREEN_HEIGTH, 0);
     printFrom("Press \"r\" to flip the board 90 degrees.", heigth += SCREEN_HEIGTH, 0);
-    printFrom("Insert your game plays in the following notation:", heigth += SCREEN_HEIGTH, 0);
+    // printFrom("Insert your game plays in the following notation:", heigth += SCREEN_HEIGTH, 0);
     printFrom("First, put the coordinates of the piece you want to move, then to where you want to move it",
               heigth += SCREEN_HEIGTH, 0);
     printFrom("For example, \"a1a3\" moves the piece from the position a1 to a3", heigth += SCREEN_HEIGTH, 0);
