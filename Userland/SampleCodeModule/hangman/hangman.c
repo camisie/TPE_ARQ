@@ -1,11 +1,10 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <standardIO.h>
 #include <stdarg.h>
-#include "hangman.h"
-#include "pokemon.h"
+#include <hangman.h>
+#include <pokemon.h>
 
 //Macro para vaciar el buffer
-#define DELETE_BUFFER while (getchar() != '\n')
+#define DELETE_BUFFER while (getChar() != '\n')
 
 //Cantidad de errores permitidos
 #define CHANCES 8
@@ -27,25 +26,23 @@ int hasPrevGame() {
 void runHangman(){
     char dictionary[][WORDLEN] = {"bulbasaur", "butterfree", "charmander", "marowak", "slowpoke", "eevee", "gastly", "geodude", "growlithe", "jigglypuff", "meowth", "pidgey", "pikachu", "poliwag", "ponyta", "psyduck", "rattata", "ditto", "squirtle", "horsea"};
     char letter, *word;
-    int mistakes = 0, qWords;
+    int mistakes = 0;
     short found[WORDLEN] = {0};
 
-    qWords = sizeof(dictionary) / WORDLEN;
-    
-    int n;
-    
+    char n;
+
     do {
-        n = getint("Enter a number from 1 to 20: ");
-    } while(n > 20 || n < 0);
-    
+        n = getChar("Enter a number from 1 to 20: ");
+    } while(n > '9' || n < '0');
+
     /* Elegir una palabra*/
-    word = dictionary[n - 1];
-    
+    word = dictionary[n - '1'];
+
     printLogo();
 
-    printf("\nGotta catch 'em all! Welcome to pokemon-hangman, the game where you have to guess the pokemon's name in order to win!\n");
-    printf("You have maximum 6 mistakes allowed :o Remember that all alphabet are in lower case\n");
-    printf("\nA wild pokemon has appeared! (◍ㅇᆽㅇ◍) Good luck :)\n");
+    print("\nGotta catch 'em all! Welcome to pokemon-hangman, the game where you have to guess the pokemon's name in order to win!\n");
+    print("You have maximum 6 mistakes allowed :o Remember that all alphabet are in lower case\n");
+    print("\nA wild pokemon has appeared! (◍ㅇᆽㅇ◍) Good luck :)\n");
 
     do {
         printWord(word, found);
@@ -54,46 +51,25 @@ void runHangman(){
         {
             mistakes++;
             if (CHANCES - mistakes > 0)
-                printf("Attack missed!\tRemaining attempts: %d\n", CHANCES - mistakes);
+                print("Attack missed!\tRemaining attempts:");
         }
-        putchar('\n');
+        putChar('\n');
     } while (mistakes < CHANCES && !completeWord(word, found));
 
     if (mistakes == CHANCES)
-        printf("\n\nOh no! The wild %s fled! (╯°□°)╯︵◓ Better try next time :(\n", word);
+        print("\n\nOh no! The wild %s fled! (╯°□°)╯︵◓ Better try next time :(\n");
     else{
-        printf("\n\nGotcha! %s was caught! (∩ᄑ_ᄑ)⊃*･｡*･ Congrats!\n\n", word);
+        print("\n\nGotcha! %s was caught! (∩ᄑ_ᄑ)⊃*･｡*･ Congrats!\n\n");
         iChooseYou(n-1);
     }
-    return 0;
-}
-
-int getint(const char message[], ... ) {
-    int n, leave = 0;
-    va_list ap;
-        
-    do {
-        va_start(ap, message);
-        vprintf(message, ap);
-        va_end(ap);
-
-        if ( scanf("%d",&n) != 1)
-        {
-            printf("\nIncorrect data\n");
-            DELETE_BUFFER;
-        }
-        else
-            leave = 1;
-    } while (! leave);
-    DELETE_BUFFER;
-    return n;
+    return;
 }
 
 char readLetter(void) {
     char letter;
     do {
-        printf("Please enter a letter: ");
-        letter = getchar();
+        print("Please enter a letter: ");
+        letter = getChar();
         if(letter != '\n')
             DELETE_BUFFER;
     } while(letter < 'a' || letter > 'z');
@@ -102,7 +78,7 @@ char readLetter(void) {
 
 int checkLetter(const char word[], char letter, short found[]) {
     int i, ok = 0;
-    
+
     for (i = 0; word[i]; i++)
         if (word[i] == letter)
         {
@@ -118,12 +94,12 @@ void printWord(const char word[], const short found[]) {
     for (i = 0; word[i]; i++)
     {
         if (found[i])
-            putchar(word[i]);
+            putChar(word[i]);
         else
-            putchar('_');
-        putchar(' ');
+            putChar('_');
+        putChar(' ');
     }
-    putchar('\n');
+    putChar('\n');
 }
 
 int completeWord(const char word[], const short found[]) {
