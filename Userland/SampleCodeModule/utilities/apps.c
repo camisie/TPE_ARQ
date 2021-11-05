@@ -17,7 +17,7 @@ programs commands[] = {{"about",       about,          "      Information about 
                        {"time",        time,           "       Displays the systems current time."},
                        {"inforeg",     infoReg,        "    Displays the registers current state."},
                        {"printmem",    printMem,       "   Prints on screen the first 32 bytes from a given position."},
-                       // {"hangman",     hangman,        "      Starts a PVE hangman game. Try hangman help for aditional info."},
+                       //{"hangman",     hangman,        "      Starts a PVE hangman game. Try hangman help for aditional info."},
                        // {"sudoku",       sudoku,      "      Starts a sudoku game. Try sudoku help for aditional info."},
                        {"clear",       clear,          "      Clears the current screen."},
                        {"exceptionZ",  throwDivZero,   " Throws a divide by zero exception"},
@@ -98,7 +98,7 @@ void showApps(int args, char argv[][25]) {
     }
 }
 
-// void hangman(int args, char argv[][25]) {            hacer despues para que se pueda abrir el juego en una ventana de la shell
+// void hangman(int args, char argv[][25]) {            //hacer despues para que se pueda abrir el juego en una ventana de la shell
 //     hangmanHandler(args, argv);
 // }
 

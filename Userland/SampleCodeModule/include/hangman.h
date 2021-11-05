@@ -4,6 +4,10 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+int hasPrevGame();
+
+void runHangman();
+
 //Lee un int de la entrada standar
 int getint(const char message[], ... );
 

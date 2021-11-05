@@ -13,12 +13,18 @@
 //Longitud maxima que puede tener una palabra
 #define WORDLEN 20
 
+int exitSave = 0, exitWithoutSave = 0;
+
 char readLetter(void);
 int checkLetter(const char word[], char letter, short found[]);
 void printWord(const char word[], const short found[]);
 int completeWord(const char word[], const short found[]);
 
-int main(void) {
+int hasPrevGame() {
+    return exitSave;
+}
+
+void runHangman(){
     char dictionary[][WORDLEN] = {"bulbasaur", "butterfree", "charmander", "marowak", "slowpoke", "eevee", "gastly", "geodude", "growlithe", "jigglypuff", "meowth", "pidgey", "pikachu", "poliwag", "ponyta", "psyduck", "rattata", "ditto", "squirtle", "horsea"};
     char letter, *word;
     int mistakes = 0, qWords;
