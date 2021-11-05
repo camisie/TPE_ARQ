@@ -18,6 +18,7 @@ char readLetter(void);
 int checkLetter(const char word[], char letter, short found[]);
 void printWord(const char word[], const short found[]);
 int completeWord(const char word[], const short found[]);
+int getint(const char message[], ... );
 
 int hasPrevGame() {
     return exitSave;
@@ -42,7 +43,7 @@ void play(){
 
         //print("Enter a number from 1 to 20: ");
         //scanf("%d",&n);
-        n = getChar("Enter a number from 1 to 20:");        //tiene que ser scanf
+        n = getint("Enter a number from 1 to 20:");        //tiene que ser scanf
 
     } while(n > '9' || n < '0');
 
@@ -121,4 +122,25 @@ int completeWord(const char word[], const short found[]) {
             complete = 0;
 
     return complete;
+}
+
+int getint(const char message[], ... ) {
+    int n, leave = 0;
+    va_list ap;
+        
+    do {
+        va_start(ap, message);
+        vprintf(message, ap);
+        va_end(ap);
+
+        if ( scanf("%d",&n) != 1)
+        {
+            printf("\nIncorrect data\n");
+            DELETE_BUFFER;
+        }
+        else
+            leave = 1;
+    } while (! leave);
+    DELETE_BUFFER;
+    return n;
 }

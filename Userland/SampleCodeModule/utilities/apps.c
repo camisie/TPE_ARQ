@@ -1,4 +1,5 @@
 #include <hangmanHandler.h>
+#include <sudokuHandler.h>
 #include <syscalls.h>
 #include <standardIO.h>
 #include <types.h>
@@ -10,7 +11,7 @@
 #define MEM_BYTES 32
 #define BUFFER64_BITS 20
 
-char array[] = {121, 27, 3, 4, 5, 6, 7, 8, 9, 10};
+char array[] = {121, 27, 3, 4, 5, 6, 7, 8, 9, 10, 11};
 
 programs commands[] = {{"about",       about,          "Information about the O.S and authors."},
                        {"help",        showApps,       "Menu of the differents apps."},
@@ -18,7 +19,7 @@ programs commands[] = {{"about",       about,          "Information about the O.
                        {"inforeg",     infoReg,        "Displays the registers current state."},
                        {"printmem",    printMem,       "Prints on screen the first 32 bytes from a given position."},
                        {"hangman",     hangman,        "Starts a PVE hangman game. Try hangman help for aditional info."},
-                       // {"sudoku",       sudoku,      "      Starts a sudoku game. Try sudoku help for aditional info."},
+                       {"sudoku",       sudoku,        "Starts a sudoku game. Try sudoku help for aditional info."},
                        {"clear",       clear,          "Clears the current screen."},
                        {"exceptionZ",  throwDivZero,   "Throws a divide by zero exception"},
                        {"exceptionOP", throwInvOpCode, "Throws an invalid Operation Code Exception"}
@@ -102,9 +103,9 @@ void hangman(int args, char argv[][25]) {            //hacer despues para que se
     hangmanHandler(args, argv);
 }
 
-// void sudoku(int args, char argv[][25]) {
-//     sudokuHandler(args, argv);
-// }
+void sudoku(int args, char argv[][25]) {
+    sudokuHandler(args, argv);
+}
 
 void clear(int args, char argv[][25]) {
     if (!checkArgs(args, 0)) return;

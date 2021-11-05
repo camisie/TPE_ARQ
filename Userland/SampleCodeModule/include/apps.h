@@ -25,6 +25,8 @@ void showApps(int args, char argv[][25]);
 
 void hangman(int args, char argv[][25]);
 
+void sudoku(int args, char argv[][25])
+
 void clear(int args, char argv[][25]);
 
 void throwDivZero();

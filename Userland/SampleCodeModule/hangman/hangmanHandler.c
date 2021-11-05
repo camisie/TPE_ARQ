@@ -136,7 +136,7 @@ void greeting() {
     // /* Elegir una palabra*/
     // char *word = dictionary[n - 1];
 
-    //printLogo();
+    printLogo();
 
     printcFrom("\t\t--------------------------------------------\n", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
 	printcFrom("\t\t| #  #   #   #   #  #### #   #   #   #   # |\n", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);

@@ -1,13 +1,25 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <standardIO.h>
 #include <stdarg.h>
-#include "sudoku.h"
+#include <sudoku.h>
 
 #define DELETE_BUFFER while (getchar() != '\n')
 
 #define N 9
 
-int main(void) {
+int exitSave = 0, exitWithoutSave = 0;
+
+int hasPrevGame() {
+    return exitSave;
+}
+
+void runHangman(int entry) {
+    clearScreen();
+    // if (entry == 0 || exitWithoutSave) newGame(); //initializes or clears board
+    play(); //setea exitSave=0 y llama a play
+} 
+
+
+void play(){
 
     int board[N][N] = {
         {7, 0, 0, 4, 9, 0, 0, 3, 0},
@@ -36,13 +48,13 @@ int main(void) {
     int num, x, y;
     int found = 30;
     
-    printf("Welcome to Sudoku! Are you ready to play?\n");
-    printf("Here are the rules:\n");
-    printf("Rule 1 - Each row must contain the numbers from 1 to 9, without repetitions\n");
-    printf("Rule 2 - Each column must contain the numbers from 1 to 9, without repetitions\n");
-    printf("Rule 3 - The digits can only occur once per block (nonet)\n");
-    printf("Rule 4 - The sum of every single row, column and nonet must equal 45\n");
-    printf("\nHave fun!\n\n");
+    // printf("Welcome to Sudoku! Are you ready to play?\n");
+    // printf("Here are the rules:\n");
+    // printf("Rule 1 - Each row must contain the numbers from 1 to 9, without repetitions\n");
+    // printf("Rule 2 - Each column must contain the numbers from 1 to 9, without repetitions\n");
+    // printf("Rule 3 - The digits can only occur once per block (nonet)\n");
+    // printf("Rule 4 - The sum of every single row, column and nonet must equal 45\n");
+    // printf("\nHave fun!\n\n");
     
     while(found < 81){
         printSudoku(board);
