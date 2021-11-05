@@ -103,7 +103,7 @@ int isSpecialKey(int scanCode) {
            scanCode == L_SHIFT || scanCode == R_SHIFT || scanCode == L_ALT || scanCode == CAPS_LOCK;
 }
 
-void keyboard_management(uint64_t *rsp) {
+void keyboardHandler(uint64_t *rsp) {
     int scan_code = read_keyboard();
     prev = curr;
     switch (scan_code) {

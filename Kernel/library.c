@@ -4,8 +4,8 @@
 #include <registers.h>
 #include <naiveConsole.h>
 #include <font.h>
+#include <colors.h>
 
-#define BUFFER64_BITS 20
 
 int printStringFrom(char *string, int length, int row, int col, int color) {
     int printedCharacters = 0;
@@ -35,7 +35,7 @@ int printStringFrom(char *string, int length, int row, int col, int color) {
 }
 
 int printError(char *string) {
-    printcln(string, 0xff0000);
+    printcln(string, RED);
     return 0;
 
 }
@@ -46,7 +46,7 @@ void println(char *string) {
 }
 
 void print(char *string) {
-    printStringFrom(string, strlen(string), -1, -1, 0xFFFFFF);
+    printStringFrom(string, strlen(string), -1, -1, WHITE);
 }
 
 void printc(char *string, int color) {
@@ -56,19 +56,6 @@ void printc(char *string, int color) {
 void printcln(char *string, int color) {
     printc(string, color);
     print("\n");
-}
-
-void printRegisters(uint64_t *rsp) {
-    char buffer[BUFFER64_BITS] = {0};
-    char regis[][4] = {"R15", "R14", "R13", "R12", "R11", "R10", "R9 ", "R8 ", "RSI", "RDI", "RBP", "RDX", "RCX", "RBX",
-                       "RAX", "RIP", "CS ", "FLG", "RSP"};
-
-    for (int i = 0; i < TOTAL_REGISTERS; i++) {
-        printc(regis[i], 0xcfd7e6);
-        printc(": ", 0xcfd7e6);
-        turnToBaseN(rsp[i], 16, buffer, BUFFER64_BITS);
-        printcln(buffer, 0xcfd7e6);
-    }
 }
 
 int strlen(char *string) {

@@ -5,8 +5,6 @@ GLOBAL picSlaveMask
 GLOBAL haltcpu
 GLOBAL _hlt
 
-GLOBAL _syscallHandler
-
 GLOBAL _irq00Handler
 GLOBAL _irq01Handler
 GLOBAL _irq02Handler
@@ -14,20 +12,19 @@ GLOBAL _irq03Handler
 GLOBAL _irq04Handler
 GLOBAL _irq05Handler
 
-GLOBAL _exception0Handler
-GLOBAl _exception6Handler
+GLOBAL _exception00Handler
+GLOBAl _exception06Handler
 
-GLOBAL saveInitRegs
+GLOBAL _syscallHandler
 
-
-EXTERN syscallDispatcher
 EXTERN irqDispatcher
 EXTERN exceptionDispatcher
+EXTERN syscallDispatcher
+EXTERN getStackBase
+
+GLOBAL saveInitialConditions
 
 SECTION .text
-;-------------------------------------------------------------
-; pushState & popState de todos los registros
-;-------------------------------------------------------------
 %macro pushState 0
 	push rax
 	push rbx
@@ -63,54 +60,40 @@ SECTION .text
 	pop rbx
 	pop rax
 %endmacro
-;-------------------------------------------------------------
 
-;-------------------------------------------------------------
-; pushState & popState de los registros, menos rax
-;-------------------------------------------------------------
-%macro pushStateWoRax 0
-	push rbx
-	push rcx
-	push rdx
-	push rbp
-	push rdi
-	push rsi
-	push r8
-	push r9
-	push r10
-	push r11
-	push r12
-	push r13
-	push r14
-	push r15
-%endmacro
-
-%macro popStateWoRax 0
-	pop r15
-	pop r14
-	pop r13
-	pop r12
-	pop r11
-	pop r10
-	pop r9
-	pop r8
-	pop rsi
-	pop rdi
-	pop rbp
-	pop rdx
-	pop rcx
-	pop rbx
-%endmacro
-;-------------------------------------------------------------
-
-%macro syscallHandlerMaster 0
-	pushStateWoRax
-
-	call syscallDispatcher
-
-	popStateWoRax
-	iretq
-%endmacro
+; %macro pushStateWoRax 0
+; 	push rbx
+; 	push rcx
+; 	push rdx
+; 	push rbp
+; 	push rdi
+; 	push rsi
+; 	push r8
+; 	push r9
+; 	push r10
+; 	push r11
+; 	push r12
+; 	push r13
+; 	push r14
+; 	push r15
+; %endmacro
+;
+; %macro popStateWoRax 0
+; 	pop r15
+; 	pop r14
+; 	pop r13
+; 	pop r12
+; 	pop r11
+; 	pop r10
+; 	pop r9
+; 	pop r8
+; 	pop rsi
+; 	pop rdi
+; 	pop rbp
+; 	pop rdx
+; 	pop rcx
+; 	pop rbx
+; %endmacro
 
 %macro irqHandlerMaster 1
 	pushState
@@ -128,26 +111,18 @@ SECTION .text
 %endmacro
 
 
-
 %macro exceptionHandler 1
-	;mov rax, [initR]
-	;mov [rsp], rax
-	;mov rax, [initR + 8]
-	;mov [rsp + 24], rax
-
 	pushState
 
 	mov rdi, %1 ; pasaje de parametro
 	mov rsi, rsp ; pasaje del "vector" de registros
-
 	call exceptionDispatcher
-
 	popState
 
-    mov rax, [initR]
-    mov [rsp], rax
-    mov rax, [initR + 8]
-    mov [rsp + 24], rax
+	call getStackBase
+	mov [rsp + 3*8], rax ;seteamos rsp a base del stack
+	mov rax, 0x400000
+	mov [rsp], rax
 
 	iretq
 %endmacro
@@ -185,8 +160,11 @@ picSlaveMask:
 
 ;int 80h - Syscall Handler
 _syscallHandler:
-	syscallHandlerMaster
-	
+	;pushStateWoRax
+	call syscallDispatcher
+	;popStateWoRax
+	iretq
+
 
 ;8254 Timer (Timer Tick)
 _irq00Handler:
@@ -214,11 +192,11 @@ _irq05Handler:
 
 
 ;Zero Division Exception
-_exception0Handler:
+_exception00Handler:
 	exceptionHandler 0
 
-;Invalid OpCode Exception 
-_exception6Handler:
+;Invalid OpCode Exception
+_exception06Handler:
 	exceptionHandler 6
 
 haltcpu:
@@ -226,17 +204,17 @@ haltcpu:
 	hlt
 	ret
 
-
 ;---------------------------------------------------------
 ; Save Initial Registers (to restore in case of exception)
 ;---------------------------------------------------------
-saveInitRegs:
-	mov [initR], rdi		;le pasamos el rip como parametro desde C
-	mov [initR+8], rsp
+saveInitialConditions:
+	mov rax, rdi
+	mov [initialConditions], rax
+	mov rax, rsp
+	mov [initialConditions + 8], rax
 	ret
 ;---------------------------------------------------------
 
 
 SECTION .bss
-	aux resq 1
-	initR resb 16
+	initialConditions resb 16 ; rdi: primeros 8 bits - rip: segundos 8 bits

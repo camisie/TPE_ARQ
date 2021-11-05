@@ -87,7 +87,7 @@ void *initializeKernelBinary() {
 
 int main() {
     load_idt();
-    saveInitRegs((uint64_t) sampleCodeModuleAddress);
+    saveInitialConditions((uint64_t) sampleCodeModuleAddress);
 
     ncPrint("Calling the sample code module returned: ");
     ncPrintHex(((EntryPoint) sampleCodeModuleAddress)());

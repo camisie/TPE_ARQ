@@ -1,21 +1,19 @@
 #include <time.h>
-#include <stdint.h>
 #include <keyboardDriver.h>
 #include <videoDriver.h>
 
-#include <lib.h>
+#define TIMER 0
+#define KEYBOARD 1
 
 static void int_20();
-
 static void int_21(uint64_t *rsp);
-
 
 void irqDispatcher(uint64_t irq, uint64_t *rsp) {
     switch (irq) {
-        case 0:
+        case TIMER:
             int_20();
             break;
-        case 1:
+        case KEYBOARD:
             int_21(rsp);
             break;
     }
@@ -23,9 +21,9 @@ void irqDispatcher(uint64_t irq, uint64_t *rsp) {
 }
 
 void int_20() {
-    timer_handler();
+    timerHandler();
 }
 
 void int_21(uint64_t *rsp) {
-    keyboard_management(rsp);
+    keyboardHandler(rsp);
 }

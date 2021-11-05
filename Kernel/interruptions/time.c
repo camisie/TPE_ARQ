@@ -11,7 +11,7 @@ typedef struct function {
 
 function alarm = {0, 0};
 
-void timer_handler() {
+void timerHandler() {
     ticks++;
     if (alarm.enabled) {
         alarm.f();
@@ -24,9 +24,4 @@ int ticks_elapsed() {
 
 int seconds_elapsed() {
     return ticks / 18;
-}
-
-void addFunc(void (*func)(void), int flag) {
-    alarm.f = func;
-    alarm.enabled = flag;
 }

@@ -24,9 +24,9 @@ void _irq04Handler(void);
 
 void _irq05Handler(void);
 
-void _exception0Handler(void);
+void _exception00Handler(void);
 
-void _exception6Handler(void);
+void _exception06Handler(void);
 
 void _cli(void);
 
@@ -41,6 +41,6 @@ void picSlaveMask(uint8_t mask);
 //Termina la ejecución de la cpu.
 void haltcpu(void);
 
-void saveInitRegs(uint64_t rip);
+void saveInitialConditions(uint64_t rip);
 
 #endif /* INTERRUPS_H_ */

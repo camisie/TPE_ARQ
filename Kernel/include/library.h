@@ -15,8 +15,6 @@ void printc(char *string, int color);
 
 void printcln(char *string, int color);
 
-void printRegisters(uint64_t *rsp);
-
 int strlen(char *string);
 
 #endif

@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-void keyboard_management(uint64_t *rsp);
+void keyboardHandler(uint64_t *rsp);
 
 int readBuffer(int length, char *toWrite);
 
