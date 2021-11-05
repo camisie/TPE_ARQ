@@ -36,13 +36,13 @@ void play(){
     int mistakes = 0;
     short found[WORDLEN] = {0};
 
-    char n;
+    char n = 0;
 
     do {
 
         //print("Enter a number from 1 to 20: ");
         //scanf("%d",&n);
-        n = getChar("Enter a number from 1 to 20: ");
+        n = getChar("Enter a number from 1 to 20:");        //tiene que ser scanf
 
     } while(n > '9' || n < '0');
 
@@ -77,7 +77,7 @@ void play(){
 }
 
 char readLetter(void) {
-    char letter;
+    char letter = 0;
     do {
         print("Please enter a letter: ");
         letter = getChar();

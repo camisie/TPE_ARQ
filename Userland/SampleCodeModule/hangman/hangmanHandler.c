@@ -152,7 +152,7 @@ void greeting() {
     printFrom("Press \"q\" to quit without saving or \"p\" to pause your game", heigth += SCREEN_HEIGTH, 0);
     printFrom("\nGotta catch 'em all! Welcome to pokemon-hangman, the game where you have to guess the pokemon's name in order to win!\n", heigth += SCREEN_HEIGTH, 0);
     printFrom("You have maximum 6 mistakes allowed :o Remember that all alphabet are in lower case\n", heigth += SCREEN_HEIGTH, 0);
-    printFrom("\nA wild pokemon has appeared! (◍ㅇᆽㅇ◍) Good luck :)\n", heigth += SCREEN_HEIGTH, 0);
+    printFrom("\nA wild pokemon has appeared! Good luck :)\n", heigth += SCREEN_HEIGTH, 0);
     // printFrom("Insert your game plays in the following notation:", heigth += SCREEN_HEIGTH, 0);
     // printFrom("First, put the coordinates of the piece you want to move, then to where you want to move it",
     //           heigth += SCREEN_HEIGTH, 0);
