@@ -23,7 +23,14 @@ int hasPrevGame() {
     return exitSave;
 }
 
-void runHangman(){
+void runHangman(int entry) {
+    clearScreen();
+    // if (entry == 0 || exitWithoutSave) newGame(); //initializes or clears board
+    play(); //setea exitSave=0 y llama a play
+}   
+
+void play(){
+
     char dictionary[][WORDLEN] = {"bulbasaur", "butterfree", "charmander", "marowak", "slowpoke", "eevee", "gastly", "geodude", "growlithe", "jigglypuff", "meowth", "pidgey", "pikachu", "poliwag", "ponyta", "psyduck", "rattata", "ditto", "squirtle", "horsea"};
     char letter, *word;
     int mistakes = 0;
@@ -32,17 +39,21 @@ void runHangman(){
     char n;
 
     do {
+
+        //print("Enter a number from 1 to 20: ");
+        //scanf("%d",&n);
         n = getChar("Enter a number from 1 to 20: ");
+
     } while(n > '9' || n < '0');
 
     /* Elegir una palabra*/
     word = dictionary[n - '1'];
 
-    printLogo();
+    // printLogo();
 
-    print("\nGotta catch 'em all! Welcome to pokemon-hangman, the game where you have to guess the pokemon's name in order to win!\n");
-    print("You have maximum 6 mistakes allowed :o Remember that all alphabet are in lower case\n");
-    print("\nA wild pokemon has appeared! (◍ㅇᆽㅇ◍) Good luck :)\n");
+    // print("\nGotta catch 'em all! Welcome to pokemon-hangman, the game where you have to guess the pokemon's name in order to win!\n");
+    // print("You have maximum 6 mistakes allowed :o Remember that all alphabet are in lower case\n");
+    // print("\nA wild pokemon has appeared! (◍ㅇᆽㅇ◍) Good luck :)\n");
 
     do {
         printWord(word, found);

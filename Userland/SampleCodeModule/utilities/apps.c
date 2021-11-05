@@ -12,15 +12,15 @@
 
 char array[] = {121, 27, 3, 4, 5, 6, 7, 8, 9, 10};
 
-programs commands[] = {{"about",       about,          "      Information about the O.S and authors."},
-                       {"help",        showApps,       "       Menu of the differents apps."},
-                       {"time",        time,           "       Displays the systems current time."},
-                       {"inforeg",     infoReg,        "    Displays the registers current state."},
-                       {"printmem",    printMem,       "   Prints on screen the first 32 bytes from a given position."},
-                       //{"hangman",     hangman,        "      Starts a PVE hangman game. Try hangman help for aditional info."},
+programs commands[] = {{"about",       about,          "Information about the O.S and authors."},
+                       {"help",        showApps,       "Menu of the differents apps."},
+                       {"time",        time,           "Displays the systems current time."},
+                       {"inforeg",     infoReg,        "Displays the registers current state."},
+                       {"printmem",    printMem,       "Prints on screen the first 32 bytes from a given position."},
+                       {"hangman",     hangman,        "Starts a PVE hangman game. Try hangman help for aditional info."},
                        // {"sudoku",       sudoku,      "      Starts a sudoku game. Try sudoku help for aditional info."},
-                       {"clear",       clear,          "      Clears the current screen."},
-                       {"exceptionZ",  throwDivZero,   " Throws a divide by zero exception"},
+                       {"clear",       clear,          "Clears the current screen."},
+                       {"exceptionZ",  throwDivZero,   "Throws a divide by zero exception"},
                        {"exceptionOP", throwInvOpCode, "Throws an invalid Operation Code Exception"}
 };
 
@@ -98,9 +98,9 @@ void showApps(int args, char argv[][25]) {
     }
 }
 
-// void hangman(int args, char argv[][25]) {            //hacer despues para que se pueda abrir el juego en una ventana de la shell
-//     hangmanHandler(args, argv);
-// }
+void hangman(int args, char argv[][25]) {            //hacer despues para que se pueda abrir el juego en una ventana de la shell
+    hangmanHandler(args, argv);
+}
 
 // void sudoku(int args, char argv[][25]) {
 //     sudokuHandler(args, argv);
