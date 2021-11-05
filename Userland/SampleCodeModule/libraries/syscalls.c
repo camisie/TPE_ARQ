@@ -43,10 +43,6 @@ void memoryDump(char *dir, char *dump) {
     _syscall(MEM_DUMP, dir, dump);
 }
 
-void setAlarm(void (*func)(void), int flag) {
-    _syscall(SET_ALARM, func, flag);
-}
-
 int getHeight() {
     return _syscall(SCREEN_HEIGHT);
 }
