@@ -134,8 +134,11 @@ int checkArgs(int args, int expected) {
     }
     return 1;
 }
+<<<<<<< Updated upstream
 
 void runGames() {
     clearScreen();
     divideScreen();
 }
+=======
+>>>>>>> Stashed changes

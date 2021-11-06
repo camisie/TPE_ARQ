@@ -108,19 +108,22 @@ void printSudoku(int board[N][N]) {
         if(i !=0 && i%3 == 0){
             print("    -  -  -  -  -  -  -  -  -  -  - \n");
         }
-        // int rta = i + 1;
+        char rta = i + 1;
         // print("rta");
         // print("%d |", i+1);
-        putChar(i+1);
+        putChar(rta);
+        print("|");
+        //print(" | ");
 
         for(int j=0; j < N; j++){
             if(j !=0 && j%3 == 0){
                 print(" | ");
-                putChar(board[i][j]);
+
             }
+            //putChar(board[i][j]);
             // putChar(board[i][j]);
-            // int rtaB = board[i][j];
-            // print("board[i][j]");
+            char rtaB = board[i][j];
+            putChar(rtaB);
             // print(" %d ",board[i][j]);
         }
         print("\n");

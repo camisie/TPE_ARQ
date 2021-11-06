@@ -1,8 +1,8 @@
 #ifndef hangman_h
 #define hangman_h
 
-#include <stdio.h>
-#include <stdarg.h>
+#include <standardIO.h>
+
 
 int hasPrevGame();
 

@@ -231,6 +231,7 @@ make clean all
 exit
 cd root
 make clean all
+<<<<<<< Updated upstream
 make clean all
 exit
 cd root
@@ -249,13 +250,19 @@ make clean all
 make clean all
 exit
 make clean all
+=======
+exit
+>>>>>>> Stashed changes
 cd root
 make clean all
 exit
 cd root
 make clean all
 exit
+<<<<<<< Updated upstream
 make clean all
+=======
+>>>>>>> Stashed changes
 cd root
 make clean all
 exit
@@ -264,12 +271,16 @@ make clean all
 exit
 cd root
 make clean all
+<<<<<<< Updated upstream
 exit
 cd root
+=======
+>>>>>>> Stashed changes
 make clean all
 exit
 cd root
 make clean all
+<<<<<<< Updated upstream
 ./run.sh
 exit
 cd root
@@ -292,6 +303,8 @@ cd root
 make clean all
 exit
 cd root
+=======
+>>>>>>> Stashed changes
 make clean all
 exit
 cd root

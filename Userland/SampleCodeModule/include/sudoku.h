@@ -1,7 +1,7 @@
 #ifndef sudoku_h
 #define sudoku_h
 
-#include <stdio.h>
+#include <standardIO.h>
 
 #define N 9
 

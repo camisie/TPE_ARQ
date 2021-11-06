@@ -123,28 +123,16 @@ char askYesNo() {
 void greeting() {
 	int heigth = 0;
     clearScreen();
+    //printLogo();
 
-    // int heigth = 0, n;
-    // char dictionary[][WORDLEN] = {"bulbasaur", "butterfree", "charmander", "marowak", "slowpoke", "eevee", "gastly", "geodude", "growlithe", "jigglypuff", "meowth", "pidgey", "pikachu", "poliwag", "ponyta", "psyduck", "rattata", "ditto", "squirtle", "horsea"};
-    // clearScreen();
-    // //showLogo();
-
-    // do {
-    //     n = getChar("Enter a number from 1 to 20: ");
-    // } while(n > 20 || n < 0);
-
-    // /* Elegir una palabra*/
-    // char *word = dictionary[n - 1];
-
-    printLogo();
-
-    printcFrom("\t\t--------------------------------------------\n", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-	printcFrom("\t\t| #  #   #   #   #  #### #   #   #   #   # |\n", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-	printcFrom("\t\t| #  #  # #  ##  # #     ## ##  # #  ##  # |\n", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-	printcFrom("\t\t| #### ##### # # # #  ## # # # ##### # # # |\n", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-	printcFrom("\t\t| #  # #   # #  ## #   # #   # #   # #  ## |\n", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-	printcFrom("\t\t| #  # #   # #   #  ###  #   # #   # #   # |\n", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-	printcFrom("\t\t--------------------------------------------\n", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
+    printcFrom("--------------------------------------------", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
+	printcFrom("| #  #   #   #   #  #### #   #   #   #   # |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
+	printcFrom("| #  #  # #  ##  # #     ## ##  # #  ##  # |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
+	printcFrom("| #### ##### # # # #  ## # # # ##### # # # |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
+	printcFrom("| #  # #   # #  ## #   # #   # #   # #  ## |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
+	printcFrom("| #  # #   # #   #  ###  #   # #   # #   # |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
+	printcFrom("--------------------------------------------", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
+    heigth += SCREEN_HEIGTH * 2;
 
     heigth += SCREEN_HEIGTH;
     printFrom("Instructions:", heigth += SCREEN_HEIGTH, 0);
