@@ -23,4 +23,6 @@ void putCharFrom(char c, int row, int col);
 
 void scan(char * buff);
 
+void printstring(char * fmt, ...);
+
 #endif

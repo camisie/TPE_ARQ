@@ -108,24 +108,18 @@ void printSudoku(int board[N][N]) {
         if(i !=0 && i%3 == 0){
             print("    -  -  -  -  -  -  -  -  -  -  - \n");
         }
-        char rta = i + 1;
+        int rta = i + 1;
         // print("rta");
-        // print("%d |", i+1);
-        putChar(rta);
-        print("|");
+        // print("%d |", i+1);s
+        printstring("%d |", rta);
         //print(" | ");
 
         for(int j=0; j < N; j++){
             if(j !=0 && j%3 == 0){
                 print(" | ");
-
             }
-            //putChar(board[i][j]);
-            // putChar(board[i][j]);
-            char rtaB = board[i][j];
-            putChar(rtaB);
-            // print(" %d ",board[i][j]);
-        }
+            printstring(" %d ",board[i][j]);
+          }
         print("\n");
     }
     print("\n");
@@ -133,16 +127,30 @@ void printSudoku(int board[N][N]) {
 
 int readNumber(int *x, int *y) {
     int num;
+    // char auxx, auxy, auxnum;
+    //
+    // printf("Please enter your row number: \n");
+    // while ((auxx = getchar()) != )
+
     do {
-        *x = (getChar("Please enter your row number: ")-1);
+      printstring("Please enter your row number: \n");
+      char auxx;
+      auxx = getChar();
+      *x = atoi(auxx) - 1;
     }while(*x < 0 || *x > 9);
 
     do {
-        *y = (getChar("Please enter your column number: ")-1);
+      printstring("Please enter your column number: \n");
+      char auxy;
+      auxy = getChar();
+      *y = atoi(auxy) - 1;
     }while(*y < 0 || *y > 9);
 
     do {
-        num = getChar("Please enter a number between 1 and 9: ");
+      printstring("Please enter a number between 1 and 9: \n");
+      char auxnum;
+      auxnum = getChar();
+      num = atoi(auxnum);
     } while(num < 0 || num > 9);
 
     return num;

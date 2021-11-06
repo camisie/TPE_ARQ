@@ -5,12 +5,12 @@
 #define IS_DIGIT(c) (c >= '0' && c <= '9')
 
 
-void itoa(int value, char *buffer, int length) {
-    for (int i = 0; i < length; i++) {
-        buffer[length - i - 1] = value % 10 + '0';
-        value /= 10;
-    }
-}
+// void itoa(int value, char *buffer, int length) {
+//     for (int i = 0; i < length; i++) {
+//         buffer[length - i - 1] = value % 10 + '0';
+//         value /= 10;
+//     }
+// }
 
 void dateToString(date myDate, char *buffer, char separator, int length) {
 
@@ -98,7 +98,7 @@ uint64_t turnToBaseN(uint64_t value, int base, char *buffer, int bufferLength) {
     return digits;
 }
 
-//Convierte un string en hexa a un int. 
+//Convierte un string en hexa a un int.
 uint64_t stringToInt(char *num) {
     toMayus(num);
     uint64_t value = 0;
@@ -117,4 +117,81 @@ void toMayus(char *num) {
         }
         i++;
     }
+}
+
+// Function to swap two numbers
+void swap(char *x, char *y) {
+    char t = *x; *x = *y; *y = t;
+}
+
+// Function to reverse `buffer[i…j]`
+char* reverse(char *buffer, int i, int j)
+{
+    while (i < j) {
+        swap(&buffer[i++], &buffer[j--]);
+    }
+
+    return buffer;
+}
+
+// Iterative function to implement `itoa()` function in C
+char* itoa(int value, char* buffer, int base)
+{
+    // invalid input
+    if (base < 2 || base > 32) {
+        return buffer;
+    }
+
+    // consider the absolute value of the number
+    int n = (value >= 0)? value : value * (-1);
+
+    int i = 0;
+    while (n)
+    {
+        int r = n % base;
+
+        if (r >= 10) {
+            buffer[i++] = 65 + (r - 10);
+        }
+        else {
+            buffer[i++] = 48 + r;
+        }
+
+        n = n / base;
+    }
+
+    // if the number is 0
+    if (i == 0) {
+        buffer[i++] = '0';
+    }
+
+    // If the base is 10 and the value is negative, the resulting string
+    // is preceded with a minus sign (-)
+    // With any other base, value is always considered unsigned
+    if (value < 0 && base == 10) {
+        buffer[i++] = '-';
+    }
+
+    buffer[i] = '\0'; // null terminate string
+
+    // reverse the string and return it
+    return reverse(buffer, 0, i - 1);
+}
+
+// Iterative function to implement `atoi()` function in C
+long atoi(const char* S)
+{
+    long num = 0;
+
+    int i = 0;
+
+    // run till the end of the string is reached, or the
+    // current character is non-numeric
+    while (S[i] && (S[i] >= '0' && S[i] <= '9'))
+    {
+        num = num * 10 + (S[i] - '0');
+        i++;
+    }
+
+    return num;
 }

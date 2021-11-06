@@ -7,7 +7,7 @@
 #define IS_ALPHA(c) ( (c <= '9' && c >= '0') || (c <= 'Z' && c >= 'A') || (c <= 'z' && c >= 'a') )
 
 
-void itoa(int value, char *buffer, int length);
+// void itoa(int value, char *buffer, int length);
 
 void dateToString(date myDate, char *buffer, char separator, int length);
 
@@ -24,5 +24,9 @@ uint64_t turnToBaseN(uint64_t value, int base, char *buffer, int bufferLength);
 uint64_t stringToInt(char *num);
 
 void toMayus(char *string);
+
+char* itoa(int value, char* buffer, int base);
+
+long atoi(const char* S);
 
 #endif
