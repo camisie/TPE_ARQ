@@ -86,7 +86,7 @@ void divideScreen(int color){
     for(int x=(screen_data->height/2);x<(screen_data->height/2) + CHAR_WIDTH;x++){
         for(int y = CHAR_WIDTH; y<screen_data->width + 4 * CHAR_WIDTH ;y++ ){
             drawPixel(x,y,color);
-            drawPixel(y,x,color);
+            drawPixel(y,x+115,color);
         }
     }
 }
