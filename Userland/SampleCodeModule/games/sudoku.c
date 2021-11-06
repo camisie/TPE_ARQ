@@ -1,6 +1,7 @@
 #include <standardIO.h>
 #include <stdarg.h>
 #include <sudoku.h>
+#include <syscalls.h>
 
 #define DELETE_BUFFER while (getchar() != '\n')
 
@@ -15,8 +16,8 @@ int hasPrevSudGame() {
 void runSudoku(int entry) {
     clearScreen();
     // if (entry == 0 || exitWithoutSave) newGame(); //initializes or clears board
-    play(); //setea exitSave=0 y llama a play
-} 
+    playSudoku(); //setea exitSave=0 y llama a play
+}
 
 
 void playSudoku(){
@@ -32,7 +33,7 @@ void playSudoku(){
         {2, 6, 0, 0, 1, 0, 0, 4, 0},
         {0, 1, 0, 0, 6, 4, 0, 0, 5}
        };
-    
+
     int completeBoard[N][N] = {
         {7, 5, 2, 4, 9, 6, 1, 3, 8},
         {3, 9, 1, 2, 5, 8, 4, 6, 7},
@@ -47,7 +48,7 @@ void playSudoku(){
 
     int num, x, y;
     int found = 30;
-    
+
     // printf("Welcome to Sudoku! Are you ready to play?\n");
     // printf("Here are the rules:\n");
     // printf("Rule 1 - Each row must contain the numbers from 1 to 9, without repetitions\n");
@@ -55,7 +56,7 @@ void playSudoku(){
     // printf("Rule 3 - The digits can only occur once per block (nonet)\n");
     // printf("Rule 4 - The sum of every single row, column and nonet must equal 45\n");
     // printf("\nHave fun!\n\n");
-    
+
     while(found < 81){
         printSudoku(board);
         num = readNumber(&x, &y);
@@ -73,46 +74,54 @@ void playSudoku(){
 
     printSudoku(completeBoard);
     print("\nWell done! You are a genius!\n");
-    
-    return 0;
-    
+
+    return;
+
 }
 
 
-int getint(const char message[], ... ) {
-    int n, leave = 0;
-    va_list ap;
-        
-    do {
-        va_start(ap, message);
-        vprint(message, ap);
-        va_end(ap);
+// int getint(const char message[], ... ) {
+//     int n, leave = 0;
+//     va_list ap;
+//
+//     do {
+//         va_start(ap, message);
+//         vprint(message, ap);
+//         va_end(ap);
+//
+//         if ( scanf("%d",&n) != 1)
+//         {
+//             print("\nIncorrect data\n");
+//             DELETE_BUFFER;
+//         }
+//         else
+//             leave = 1;
+//     } while (! leave);
+//     DELETE_BUFFER;
+//     return n;
+// }
 
-        if ( scanf("%d",&n) != 1)
-        {
-            print("\nIncorrect data\n");
-            DELETE_BUFFER;
-        }
-        else
-            leave = 1;
-    } while (! leave);
-    DELETE_BUFFER;
-    return n;
-}
-
-void printSudoku(const int board[N][N]) {
+void printSudoku(int board[N][N]) {
     print("    1  2  3     4  5  6     7  8  9 \n");
     print("    -  -  -  -  -  -  -  -  -  -  - \n");
     for(int i=0; i < N; i++){
         if(i !=0 && i%3 == 0){
             print("    -  -  -  -  -  -  -  -  -  -  - \n");
         }
-        print("%d |", i+1);
+        // int rta = i + 1;
+        // print("rta");
+        // print("%d |", i+1);
+        putChar(i+1);
+
         for(int j=0; j < N; j++){
             if(j !=0 && j%3 == 0){
                 print(" | ");
+                putChar(board[i][j]);
             }
-            print(" %d ",board[i][j]);
+            // putChar(board[i][j]);
+            // int rtaB = board[i][j];
+            // print("board[i][j]");
+            // print(" %d ",board[i][j]);
         }
         print("\n");
     }
@@ -122,17 +131,16 @@ void printSudoku(const int board[N][N]) {
 int readNumber(int *x, int *y) {
     int num;
     do {
-        *x = (getint("Please enter your row number: ")-1);
+        *x = (getChar("Please enter your row number: ")-1);
     }while(*x < 0 || *x > 9);
-    
+
     do {
-        *y = (getint("Please enter your column number: ")-1);
+        *y = (getChar("Please enter your column number: ")-1);
     }while(*y < 0 || *y > 9);
-    
+
     do {
-        num = getint("Please enter a number between 1 and 9: ");
+        num = getChar("Please enter a number between 1 and 9: ");
     } while(num < 0 || num > 9);
-    
+
     return num;
 }
-

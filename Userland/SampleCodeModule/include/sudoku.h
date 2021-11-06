@@ -7,7 +7,7 @@
 
 int getint(const char message[], ... );
 
-void printSudoku(const int board[N][N]);
+void printSudoku(int board[N][N]);
 
 int readNumber(int *x, int *y);
 
@@ -17,4 +17,4 @@ void runSudoku(int entry);
 
 void playSudoku();
 
-#endif 
+#endif
