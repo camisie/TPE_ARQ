@@ -13,6 +13,7 @@
 #define SET_ALARM 11
 #define SCREEN_HEIGHT 12
 #define SCREEN_WIDTH 13
+#define DIVIDE_SCREEN 14
 
 int read(char *buffer, int length) {
     return _syscall(READ_SYSCALL, length, buffer);
@@ -49,4 +50,8 @@ int getHeight() {
 
 int getWidth() {
     return _syscall(SCREEN_WIDTH);
+}
+
+int divideScreen() {
+    return _syscall(DIVIDE_SCREEN);
 }

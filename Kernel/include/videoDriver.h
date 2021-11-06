@@ -15,4 +15,6 @@ int screenHeight();
 
 int screenWidth();
 
+void divideScreen(int color);
+
 #endif

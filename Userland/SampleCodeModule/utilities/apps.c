@@ -22,7 +22,8 @@ programs commands[] = {{"about",       about,          "Information about the O.
                        {"sudoku",       sudoku,        "Starts a sudoku game. Try sudoku help for aditional info."},
                        {"clear",       clear,          "Clears the current screen."},
                        {"exceptionZ",  throwDivZero,   "Throws a divide by zero exception"},
-                       {"exceptionOP", throwInvOpCode, "Throws an invalid Operation Code Exception"}
+                       {"exceptionOP", throwInvOpCode, "Throws an invalid Operation Code Exception"},
+                       {"games", runGames, "Hangman - Sudoku - Chronometer - Time"}
 };
 
 int checkArgs(int args, int expected);
@@ -132,4 +133,9 @@ int checkArgs(int args, int expected) {
         return 0;
     }
     return 1;
+}
+
+void runGames() {
+    clearScreen();
+    divideScreen();
 }

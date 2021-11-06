@@ -25,6 +25,8 @@ int syscallDispatcher(uint64_t call, uint64_t firstP, uint64_t secondP, uint64_t
             return getScreenHeight();
         case SCREEN_WIDTH_ID:
             return getScreenWidth();
+        case DIVIDE_SCREEN_ID:
+            sys_divide();
         default:
             return -1;
     }

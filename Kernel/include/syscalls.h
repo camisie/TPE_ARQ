@@ -10,6 +10,7 @@
 #define SYS_TIME_ID 10
 #define SCREEN_HEIGHT_ID 12
 #define SCREEN_WIDTH_ID 13
+#define DIVIDE_SCREEN_ID 14
 #define MEM_BYTES 32
 
 #include <timerDriver.h>

@@ -82,6 +82,15 @@ void drawPixel(int row, int col, int color) {
     *currentPosition = red;
 }
 
+void divideScreen(int color){
+    for(int x=(screen_data->height/2);x<(screen_data->height/2) + CHAR_WIDTH;x++){
+        for(int y = CHAR_WIDTH; y<screen_data->width + 4 * CHAR_WIDTH ;y++ ){
+            drawPixel(x,y,color);
+            drawPixel(y,x,color);
+        }
+    }
+}
+
 int drawCharFrom(int character, int row, int col, int color) {
     if (row >= screen_data->height || col >= screen_data->width) {
         return 0;
@@ -209,6 +218,3 @@ void backspace() {
     }
     return;
 }
-
-
-

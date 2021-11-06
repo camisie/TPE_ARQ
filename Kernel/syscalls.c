@@ -5,6 +5,7 @@
 #include <keyboardDriver.h>
 #include <timerDriver.h>
 #include <time.h>
+#include <colors.h>
 
 int sys_read(int length, char *toRead) {
     return readBuffer(length, toRead);
@@ -34,6 +35,10 @@ void getRegisters(uint64_t firstP[]) {
 
 void sys_clear() {
     clearScreen();
+}
+
+void sys_divide() {
+    divideScreen(WHITE);
 }
 
 int getScreenHeight() {
