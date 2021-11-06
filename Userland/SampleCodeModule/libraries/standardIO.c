@@ -51,3 +51,15 @@ void putCharFrom(char c, int row, int col) {
     *buffer = c;
     printFrom(buffer, row, col);
 }
+
+void scan(char * buff) {
+  int ch = 0;
+  int index = 0;
+  while (ch != '\n') {
+    if (ch)
+      buff[index++] = ch;
+      putChar(ch);
+      ch = getChar();
+  }
+  putChar('\n');
+}

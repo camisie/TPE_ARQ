@@ -19,7 +19,7 @@ char readLetter(void);
 int checkLetter(const char word[], char letter, short found[]);
 void printWord(const char word[], const short found[]);
 int completeWord(const char word[], const short found[]);
-int getintH(const char message[], ... );
+//int getintH(const char message[], ... );
 
 int hasPrevGame() {
     return exitSaveH;
@@ -42,9 +42,9 @@ void play(){
 
     do {
 
-        //print("Enter a number from 1 to 20: ");
+        print("Enter a number from 1 to 20: ");
         //scanf("%d",&n);
-        n = getChar("Enter a number from 1 to 20:");        //tiene que ser scanf
+        n = scan();        //que le paso?
 
     } while(n > '9' || n < '0');
 

@@ -21,4 +21,6 @@ void putChar(char c);
 
 void putCharFrom(char c, int row, int col);
 
+void scan(char * buff);
+
 #endif
