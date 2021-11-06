@@ -8,18 +8,18 @@
 
 int exitSave = 0, exitWithoutSave = 0;
 
-int hasPrevGame() {
+int hasPrevSudGame() {
     return exitSave;
 }
 
-void runHangman(int entry) {
+void runSudoku(int entry) {
     clearScreen();
     // if (entry == 0 || exitWithoutSave) newGame(); //initializes or clears board
     play(); //setea exitSave=0 y llama a play
 } 
 
 
-void play(){
+void playSudoku(){
 
     int board[N][N] = {
         {7, 0, 0, 4, 9, 0, 0, 3, 0},
@@ -60,19 +60,19 @@ void play(){
         printSudoku(board);
         num = readNumber(&x, &y);
         if(board[x][y] != 0)
-            printf("\nThis position is already taken!\n\n");
+            print("\nThis position is already taken!\n\n");
         else if(num != completeBoard[x][y]){
-            printf("\nWrong number :( Try again!\n\n");
+            print("\nWrong number :( Try again!\n\n");
         }
         else {
-            printf("\nGood job :) Keep going!\n\n");
+            print("\nGood job :) Keep going!\n\n");
             board[x][y] = num;
             found += 1;
         }
     }
 
     printSudoku(completeBoard);
-    printf("\nWell done! You are a genius!\n");
+    print("\nWell done! You are a genius!\n");
     
     return 0;
     
@@ -85,12 +85,12 @@ int getint(const char message[], ... ) {
         
     do {
         va_start(ap, message);
-        vprintf(message, ap);
+        vprint(message, ap);
         va_end(ap);
 
         if ( scanf("%d",&n) != 1)
         {
-            printf("\nIncorrect data\n");
+            print("\nIncorrect data\n");
             DELETE_BUFFER;
         }
         else
@@ -101,22 +101,22 @@ int getint(const char message[], ... ) {
 }
 
 void printSudoku(const int board[N][N]) {
-    printf("    1  2  3     4  5  6     7  8  9 \n");
-    printf("    -  -  -  -  -  -  -  -  -  -  - \n");
+    print("    1  2  3     4  5  6     7  8  9 \n");
+    print("    -  -  -  -  -  -  -  -  -  -  - \n");
     for(int i=0; i < N; i++){
         if(i !=0 && i%3 == 0){
-            printf("    -  -  -  -  -  -  -  -  -  -  - \n");
+            print("    -  -  -  -  -  -  -  -  -  -  - \n");
         }
-        printf("%d |", i+1);
+        print("%d |", i+1);
         for(int j=0; j < N; j++){
             if(j !=0 && j%3 == 0){
-                printf(" | ");
+                print(" | ");
             }
-            printf(" %d ",board[i][j]);
+            print(" %d ",board[i][j]);
         }
-        printf("\n");
+        print("\n");
     }
-    printf("\n");
+    print("\n");
 }
 
 int readNumber(int *x, int *y) {

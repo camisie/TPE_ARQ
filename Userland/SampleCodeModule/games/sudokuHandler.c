@@ -12,24 +12,24 @@
 
 void printSudokuMenu();
 
-char askYesNo();
+char askYesNoSud();
 
-void greeting();
+void greetingSud();
 
 void sudokuHandler(int args, char argv[][25]) {
     if (args == 0 || strcmp(argv[1], "new") == 0 || strcmp(argv[1], "-n") == 0 || strcmp(argv[1], "start") == 0 ||
         strcmp(argv[1], "-s") == 0) {
-        if (hasPrevGame()) println("There's a game already loaded. Are you sure you want to start a new one? [Y/n]");
+        if (hasPrevSudGame()) println("There's a game already loaded. Are you sure you want to start a new one? [Y/n]");
         else println("You're about to start a new sudoku game. Are you sure? [Y/n]");
-        askYesNo();
+        askYesNoSud();
     } else if (strcmp(argv[1], "resume") == 0 || strcmp(argv[1], "-r") == 0 || strcmp(argv[1], "continue") == 0 ||
                strcmp(argv[1], "-c") == 0) {
-        if (hasPrevGame()) {
+        if (hasPrevSudGame()) {
             println("Please wait! The game will resume just from where you left it!");
             runSudoku(1);
         } else {
             println("There doesn't seem to be a previous game saved in memory. Start a new game? [Y/n]");
-            askYesNo();
+            askYesNoSud();
         }
     } else if (strcmp(argv[1], "help") == 0 || strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "menu") == 0 ||
                strcmp(argv[1], "-m") == 0) {
@@ -58,7 +58,7 @@ void printSudokuMenu() {
     printcln("  Displays information about the elapsed game.", 0xcfd7e6);
 }
 
-char askYesNo() {
+char askYesNoSud() {
     char ans;
     while ((ans = getChar()) != 'n' && ans != 'y' && ans != 'Y') {
         if (ans != 0) {
@@ -68,14 +68,14 @@ char askYesNo() {
     if (ans == 'n') {
         println("Need help? Enter sudoku help or sudoku -h to display a menu of the different options from which you can choose");
     } else if (ans == 'Y' || ans == 'y') {
-        greeting(); //starting a new sudoku game
+        greetingSud(); //starting a new sudoku game
         runSudoku(0);
     }
     return ans;
 }
 
 
-void greeting() {
+void greetingSud() {
 	int heigth = 0;
     clearScreen();
 

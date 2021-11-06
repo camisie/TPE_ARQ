@@ -11,4 +11,10 @@ void printSudoku(const int board[N][N]);
 
 int readNumber(int *x, int *y);
 
+int hasPrevSudGame();
+
+void runSudoku(int entry);
+
+void playSudoku();
+
 #endif 
