@@ -12,10 +12,18 @@
 //-------------------------------------------
 
 char *initGreet = "user@TPArqui:~$ ";
+int startup = 1;
 
-void initShell() {
+void startShell() {
+    if(startup) {
+        printOSLogo();
+        startup = 0;
+    }
+    runShell();
+}
+
+void runShell() {
     char c;
-    printOSLogo();
     println("");
     while (1) {
         printc(initGreet, 0x22ab00);
