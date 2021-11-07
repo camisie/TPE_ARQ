@@ -3,7 +3,7 @@
 #include <hangman.h>
 #include <pokemon.h>
 #include <syscalls.h>
-#include <gameHandler.h>
+// #include <gameHandler.h>
 
 //Macro para vaciar el buffer
 #define DELETE_BUFFER while (getChar() != '\n')
@@ -14,7 +14,7 @@
 //Longitud maxima que puede tener una palabra
 #define WORDLEN 20
 
-#define ERROR_CODE -1
+// #define ERROR_CODE -1
 
 int exitSaveH = 0, exitWithoutSaveH = 0;
 
@@ -40,16 +40,16 @@ void play(){
     do {
 
         n = getint("Enter a number from 1 to 20: ");
-        if (n == ERROR_CODE) {
-            askYesNoQuit();
-        }    
+        // if (n == ERROR_CODE) {
+        //     askYesNoQuit();
+        // }    
         
-    } while(n > 9 || n <= 0);
+    } while(n > 9 || n < 0);
 
-    // n = getint("Enter a number from 1 to 20: ");
 
     /* Elegir una palabra*/
-    word = dictionary[n - '1'];
+    word = dictionary[n - 1];
+
 
     // printLogo();
 
@@ -70,9 +70,11 @@ void play(){
     } while (mistakes < CHANCES && !completeWord(word, found));
 
     if (mistakes == CHANCES)
-        print("\n\nOh no! The wild %s fled! (╯°□°)╯︵◓ Better try next time :(\n");
+        printstring("\n\nOh no! The wild %s fled! (╯°□°)╯︵◓ Better try next time :(\n", word);
+        //print("\n\nOh no! The wild %s fled! (╯°□°)╯︵◓ Better try next time :(\n");
     else{
-        print("\n\nGotcha! %s was caught! (∩ᄑ_ᄑ)⊃*･｡*･ Congrats!\n\n");
+        printstring("\n\nGotcha! %s was caught! (∩ᄑ_ᄑ)⊃*･｡*･ Congrats!\n\n", word);
+        //print("\n\nGotcha! %s was caught! (∩ᄑ_ᄑ)⊃*･｡*･ Congrats!\n\n");
         iChooseYou(n-1);
     }
     return;
@@ -82,8 +84,8 @@ void play(){
 char readLetter(void) {
     char letter;
     do {
-        // print("Please enter a letter: ");
         letter = getChar("Please enter a letter: ");
+
         if(letter != '\n')
             DELETE_BUFFER;
     } while(letter < 'a' || letter > 'z');
