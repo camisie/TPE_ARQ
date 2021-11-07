@@ -9,7 +9,7 @@
 #define DELETE_BUFFER while (getChar() != '\n')
 
 //Cantidad de errores permitidos
-#define CHANCES 8
+#define CHANCES 6
 
 //Longitud maxima que puede tener una palabra
 #define WORDLEN 20
@@ -58,22 +58,24 @@ void play(){
     // print("\nA wild pokemon has appeared! (◍ㅇᆽㅇ◍) Good luck :)\n");
 
     do {
+        //putChar("/n");
+        println("");
         printWord(word, found);
         letter = readLetter();
         if (!checkLetter(word, letter, found))
         {
             mistakes++;
             if (CHANCES - mistakes > 0)
-                print("Attack missed!\tRemaining attempts:");
+                printstring("Attack missed!\tRemaining attempts: %d", CHANCES - mistakes);
         }
         putChar('\n');
     } while (mistakes < CHANCES && !completeWord(word, found));
 
     if (mistakes == CHANCES)
-        printstring("\n\nOh no! The wild %s fled! (╯°□°)╯︵◓ Better try next time :(\n", word);
+        printstring("\n\nOh no! The wild %s fled! Better try next time :(\n", word);
         //print("\n\nOh no! The wild %s fled! (╯°□°)╯︵◓ Better try next time :(\n");
     else{
-        printstring("\n\nGotcha! %s was caught! (∩ᄑ_ᄑ)⊃*･｡*･ Congrats!\n\n", word);
+        printstring("\n\nGotcha! %s was caught! Congrats!\n\n", word);
         //print("\n\nGotcha! %s was caught! (∩ᄑ_ᄑ)⊃*･｡*･ Congrats!\n\n");
         iChooseYou(n-1);
     }
@@ -83,12 +85,16 @@ void play(){
 
 char readLetter(void) {
     char letter;
+    print("Please enter a letter: ");
     do {
-        letter = getChar("Please enter a letter: ");
+       
+        letter = getChar();
 
         if(letter != '\n')
             DELETE_BUFFER;
+
     } while(letter < 'a' || letter > 'z');
+
     return letter;
 }
 
