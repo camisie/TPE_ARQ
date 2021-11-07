@@ -5,7 +5,7 @@
 #include <syscalls.h>
 #include <maths.h>
 
-#define SCREEN_HEIGTH 16
+#define SCREEN_HEIGTH 70
 #define YELLOW_GREETING 0xFFE81F
 #define MIDDLE_TITLE 296
 #define WORDLEN 20
@@ -82,7 +82,7 @@ void greetingSud() {
     heigth += SCREEN_HEIGTH;
     printFrom("Instructions:", heigth += SCREEN_HEIGTH, 0);
     printFrom("Press ENTER to begin your adventure", heigth += SCREEN_HEIGTH, 0);
-    printFrom("Press \"q\" to quit without saving or \"p\" to pause your game", heigth += SCREEN_HEIGTH, 0);
+    printFrom("Press \"q\" to quit", heigth += SCREEN_HEIGTH, 0);
     printFrom("Welcome to Sudoku! Are you ready to play?\n", heigth += SCREEN_HEIGTH, 0);
     printFrom("Here are the rules:\n", heigth += SCREEN_HEIGTH, 0);
     printFrom("Rule 1 - Each row must contain the numbers from 1 to 9, without repetitions\n", heigth += SCREEN_HEIGTH, 0);
@@ -90,6 +90,6 @@ void greetingSud() {
     printFrom("Rule 3 - The digits can only occur once per block (nonet)\n", heigth += SCREEN_HEIGTH, 0);
     printFrom("Rule 4 - The sum of every single row, column and nonet must equal 45\n", heigth += SCREEN_HEIGTH, 0);
     printFrom("\nHave fun!\n\n", heigth += SCREEN_HEIGTH, 0);
-    
+
     while ((getChar()) != '\n');
 }

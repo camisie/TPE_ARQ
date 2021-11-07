@@ -76,6 +76,9 @@ int getint(const char * message) {
           }
       }
   }
+  if (strcmp(auxx, 'q') == 0) {
+    return -1;
+  }
   return atoi(num);
 }
 

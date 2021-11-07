@@ -107,16 +107,25 @@ int readNumber(int *x, int *y) {
     do {
       *x = getint("Please enter your row number: ") - 1;
       putChar('\n');
+      if (*x == ERROR_CODE) {
+        askYesNoQuit();
+      }
     }while(*x < 0 || *x > 9);
 
     do {
         *y = getint("Please enter your column number: ")-1;
         putChar('\n');
+        if (*y == ERROR_CODE) {
+          askYesNoQuit();
+        }
     }while(*y < 0 || *y > 9);
 
     do {
         num = getint("Please enter a number between 1 and 9: ");
         putChar('\n');
+        if (num == ERROR_CODE) {
+          askYesNoQuit();
+        }
     } while(num < 0 || num > 9);
 
     return num;

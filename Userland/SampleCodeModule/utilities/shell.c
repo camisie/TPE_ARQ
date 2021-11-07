@@ -1,9 +1,4 @@
 #include <shell.h>
-#include <string.h>
-#include <standardIO.h>
-#include <syscalls.h>
-#include <stdint.h>
-#include <apps.h>
 
 #define CHUNK 200
 
@@ -77,6 +72,11 @@ int hasProgram(char *input) {
         }
     }
     return -1;
+}
+
+void returnToShell() {
+  clearScreen();
+  runShell();
 }
 
 void printOSLogo(void) {
