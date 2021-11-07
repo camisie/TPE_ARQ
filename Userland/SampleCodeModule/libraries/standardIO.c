@@ -5,6 +5,8 @@
 #include <string.h>
 
 #define CHAR_COLOR 0xFFFFFF
+#define DELETE_BUFFER while (getchar() != '\n')
+#define MAX_NUM_LEN 10
 
 void println(char *toPrint) {
     printcFrom(toPrint, -1, -1, CHAR_COLOR);
@@ -54,17 +56,98 @@ void putCharFrom(char c, int row, int col) {
     printFrom(buffer, row, col);
 }
 
-void scan(char * buff) {
-  int ch = 0;
-  int index = 0;
-  while (ch != '\n') {
-    if (ch)
-      buff[index++] = ch;
-      putChar(ch);
-      ch = getChar();
+int getint(const char * message) {
+  printstring("%s", message);
+  char auxx;
+  char num[MAX_NUM_LEN] = {0};
+  int numLen = 0;
+  while ((auxx = getChar()) != '\n' && numLen < MAX_NUM_LEN) {
+      if (auxx != 0) {
+          switch (auxx) {
+              case '\b':
+                  if (numLen > 0) {
+                      num[--numLen] = 0;
+                      removeChar();
+                  }
+                  break;
+              default:
+                  num[numLen++] = auxx;
+                  putChar(auxx);
+          }
+      }
   }
-  putChar('\n');
+  return atoi(num);
 }
+
+// int scan(char * str, ...)
+// {
+//     va_list vl;
+//     int i = 0, j=0, ret = 0;
+//     char buff[100] = {0}, tmp[20], c;
+//     char *out_loc;
+//     while(c != '')
+//     {
+//         if (fread(&c, 1, 1, stdin))
+//         {
+//  	       buff[i] = c;
+//  	       i++;
+//  	    }
+//  	}
+//  	va_start( vl, str );
+//  	i = 0;
+//  	while (str && str[i])
+//  	{
+//  	    if (str[i] == '%')
+//  	    {
+//  	       i++;
+//  	       switch (str[i])
+//  	       {
+//  	           case 'c':
+//  	           {
+// 	 	           *(char *)va_arg( vl, char* ) = buff[j];
+// 	 	           j++;
+// 	 	           ret ++;
+// 	 	           break;
+//  	           }
+//  	           case 'd':
+//  	           {
+// 	 	           *(int *)va_arg( vl, int* ) =strtol(&buff[j], &out_loc, 10);
+// 	 	           j+=out_loc -&buff[j];
+// 	 	           ret++;
+// 	 	           break;
+//  	            }
+//  	            case 'x':
+//  	            {
+// 	 	           *(int *)va_arg( vl, int* ) =strtol(&buff[j], &out_loc, 16);
+// 	 	           j+=out_loc -&buff[j];
+// 	 	           ret++;
+// 	 	           break;
+//  	            }
+//  	        }
+//  	    }
+//  	    else
+//  	    {
+//  	        buff[j] =str[i];
+//             j++;
+//         }
+//         i++;
+//     }
+//     va_end(vl);
+//     return ret;
+// }
+
+// void scan(char * buffer) {
+//     int aux = 0;
+//     int index = 0;
+//     while (aux != '\n') {
+//         if(aux) {
+//             buffer[index++] = aux;
+//             putChar(aux);
+//             aux = getChar();
+//         }
+//     }
+//     putChar('\n');
+// }
 
 void printstring(char * fmt, ...) {
   va_list vl;

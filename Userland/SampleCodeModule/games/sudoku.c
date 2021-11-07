@@ -1,9 +1,4 @@
-#include <standardIO.h>
-#include <stdarg.h>
 #include <sudoku.h>
-#include <syscalls.h>
-
-#define DELETE_BUFFER while (getchar() != '\n')
 
 #define N 9
 
@@ -79,28 +74,6 @@ void playSudoku(){
 
 }
 
-
-// int getint(const char message[], ... ) {
-//     int n, leave = 0;
-//     va_list ap;
-//
-//     do {
-//         va_start(ap, message);
-//         vprint(message, ap);
-//         va_end(ap);
-//
-//         if ( scanf("%d",&n) != 1)
-//         {
-//             print("\nIncorrect data\n");
-//             DELETE_BUFFER;
-//         }
-//         else
-//             leave = 1;
-//     } while (! leave);
-//     DELETE_BUFFER;
-//     return n;
-// }
-
 void printSudoku(int board[N][N]) {
     print("    1  2  3     4  5  6     7  8  9 \n");
     print("    -  -  -  -  -  -  -  -  -  -  - \n");
@@ -131,26 +104,19 @@ int readNumber(int *x, int *y) {
     //
     // printf("Please enter your row number: \n");
     // while ((auxx = getchar()) != )
-
     do {
-      printstring("Please enter your row number: \n");
-      char auxx;
-      auxx = getChar();
-      *x = atoi(auxx) - 1;
+      *x = getint("Please enter your row number: ") - 1;
+      putChar('\n');
     }while(*x < 0 || *x > 9);
 
     do {
-      printstring("Please enter your column number: \n");
-      char auxy;
-      auxy = getChar();
-      *y = atoi(auxy) - 1;
+        *y = getint("Please enter your column number: ")-1;
+        putChar('\n');
     }while(*y < 0 || *y > 9);
 
     do {
-      printstring("Please enter a number between 1 and 9: \n");
-      char auxnum;
-      auxnum = getChar();
-      num = atoi(auxnum);
+        num = getint("Please enter a number between 1 and 9: ");
+        putChar('\n');
     } while(num < 0 || num > 9);
 
     return num;
