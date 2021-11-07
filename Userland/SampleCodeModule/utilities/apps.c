@@ -91,10 +91,8 @@ void time2(void) {
     dateInfo info;
     getTime(&info);
     char fecha[19] = {0};
-    printFrom("Local time: ", 200, 675);
     timeToString(&info, fecha, '/', 9);
     printFrom(fecha, 200, 775);
-    println("");
 }
 
 void showApps(int args, char argv[][25]) {
@@ -148,7 +146,10 @@ void runGames() {
     clearScreen();
     divideScreen();
     printFrom("cronometro", 200, 200);
-    time2();
+    printFrom("Local time: ", 200, 675);
     printFrom("hangman", 550, 200);
     printFrom("sudoku", 550, 750);
+    while(1) {
+        time2();
+    }    
 }
