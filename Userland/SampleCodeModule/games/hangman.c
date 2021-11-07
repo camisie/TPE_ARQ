@@ -3,6 +3,7 @@
 #include <hangman.h>
 #include <pokemon.h>
 #include <syscalls.h>
+#include <gameHandler.h>
 
 //Macro para vaciar el buffer
 #define DELETE_BUFFER while (getChar() != '\n')
@@ -13,13 +14,9 @@
 //Longitud maxima que puede tener una palabra
 #define WORDLEN 20
 
-int exitSaveH = 0, exitWithoutSaveH = 0;
+#define ERROR_CODE -1
 
-char readLetter(void);
-int checkLetter(const char word[], char letter, short found[]);
-void printWord(const char word[], const short found[]);
-int completeWord(const char word[], const short found[]);
-//int getintH(const char message[], ... );
+int exitSaveH = 0, exitWithoutSaveH = 0;
 
 int hasPrevGame() {
     return exitSaveH;
@@ -43,6 +40,9 @@ void play(){
     do {
 
         n = getint("Enter a number from 1 to 20: ");
+        if (n == ERROR_CODE) {
+            askYesNoQuit();
+        }    
         
     } while(n > 9 || n <= 0);
 
@@ -76,13 +76,14 @@ void play(){
         iChooseYou(n-1);
     }
     return;
+
 }
 
 char readLetter(void) {
     char letter;
     do {
-        print("Please enter a letter: ");
-        letter = getChar();
+        // print("Please enter a letter: ");
+        letter = getChar("Please enter a letter: ");
         if(letter != '\n')
             DELETE_BUFFER;
     } while(letter < 'a' || letter > 'z');
