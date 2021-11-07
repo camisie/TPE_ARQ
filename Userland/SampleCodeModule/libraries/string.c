@@ -57,14 +57,33 @@ int strlen(char *string) {
     return count;
 }
 
-int strcmp(char *stringA, char *stringB) {
-    int i = 0;
-    for (; stringA[i] == stringB[i]; i++) {
-        if (stringA[i] == 0)
-            return 0;
+// Function to implement strcmp function
+int strcmp(const char *X, const char *Y)
+{
+    while (*X)
+    {
+        // if characters differ, or end of the second string is reached
+        if (*X != *Y) {
+            break;
+        }
+
+        // move to the next pair of characters
+        X++;
+        Y++;
     }
-    return stringA[i] - stringB[i];
+
+    // return the ASCII difference after converting `char*` to `unsigned char*`
+    return *(const unsigned char*)X - *(const unsigned char*)Y;
 }
+
+// int strcmp(char *stringA, char *stringB) {
+//     int i = 0;
+//     for (; stringA[i] == stringB[i]; i++) {
+//         if (stringA[i] == 0)
+//             return 0;
+//     }
+//     return stringA[i] - stringB[i];
+// }
 
 int strtoks(char *string, char delimiter, char buffer[][25]) {
     int i = 0;

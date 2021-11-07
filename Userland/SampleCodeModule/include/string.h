@@ -15,7 +15,7 @@ char *strcpy(char *destination, char *source);
 
 int strlen(char *string);
 
-int strcmp(char *stringA, char *stringB);
+int strcmp(const char *X, const char *Y);
 
 int strtoks(char *string, char delimiter, char buffer[][25]);
 

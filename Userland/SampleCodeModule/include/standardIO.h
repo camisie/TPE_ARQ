@@ -1,6 +1,8 @@
 #ifndef STDIO_H
 #define STDIO_H
 
+#define QUIT_CODE -1
+
 void println(char *toPrint); //print line
 
 void print(char *toPrint); //print with format

@@ -4,6 +4,6 @@
 #include <standardIO.h>
 #include <shell.h>
 
-void askYesNoQuit();
+int askYesNoQuit();
 
 #endif

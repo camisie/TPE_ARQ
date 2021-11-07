@@ -1,6 +1,6 @@
 #include <gameHandler.h>
 
-void askYesNoQuit() {
+int askYesNoQuit() {
   char ans;
   println("Are you sure you want to quit the game? [Y/n]");
   while ((ans = getChar()) != 'n' && ans != 'y' && ans != 'Y' && ans != 'N') {
@@ -11,8 +11,9 @@ void askYesNoQuit() {
   if (ans == 'n' || ans == 'N') {
       putChar('\n');
       println("Great! Let's keep playing :)");
+      return 0;
   } else if (ans == 'Y' || ans == 'y') {
       returnToShell();
   }
-  return ans;
+  return 1;
 }

@@ -6,7 +6,8 @@
 
 #define CHAR_COLOR 0xFFFFFF
 #define DELETE_BUFFER while (getchar() != '\n')
-#define MAX_NUM_LEN 10
+#define MAX_NUM_LEN 13
+#define ISNUM(c) ((c) >= '0' && (c) <= '9')
 
 void println(char *toPrint) {
     printcFrom(toPrint, -1, -1, CHAR_COLOR);
@@ -61,23 +62,29 @@ int getint(const char * message) {
   char auxx;
   char num[MAX_NUM_LEN] = {0};
   int numLen = 0;
+  int isQ = 0;
   while ((auxx = getChar()) != '\n' && numLen < MAX_NUM_LEN) {
       if (auxx != 0) {
-          switch (auxx) {
-              case '\b':
-                  if (numLen > 0) {
-                      num[--numLen] = 0;
-                      removeChar();
-                  }
-                  break;
-              default:
-                  num[numLen++] = auxx;
-                  putChar(auxx);
+        if (auxx == '\b') {
+          if (numLen > 0) {
+            num[--numLen] = 0;
+            removeChar();
           }
+          if (isQ) {
+            isQ = 0;
+            removeChar();
+          }
+        } else if ((auxx == 'q' || auxx == 'Q') && !isQ && numLen == 0) {
+          isQ = 1;
+          putChar(auxx);
+        } else if (auxx >= '0' && auxx <= '9' && !isQ) {
+          num[numLen++] = auxx;
+          putChar(auxx);
+        }
       }
   }
-  if (strcmp(auxx, 'q') == 0) {
-    return -1;
+  if (isQ) {
+    return QUIT_CODE;
   }
   return atoi(num);
 }

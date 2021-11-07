@@ -8,7 +8,6 @@
 #include <gameHandler.h>
 
 #define N 9
-#define ERROR_CODE -1
 
 // int getint(const char message[], ... );
 

@@ -60,6 +60,9 @@ void playSudoku(){
         else if(num != completeBoard[x][y]){
             print("\nWrong number :( Try again!\n\n");
         }
+        else if (num == QUIT_CODE) {
+          return;
+        }
         else {
             print("\nGood job :) Keep going!\n\n");
             board[x][y] = num;
@@ -105,28 +108,36 @@ int readNumber(int *x, int *y) {
     // printf("Please enter your row number: \n");
     // while ((auxx = getchar()) != )
     do {
-      *x = getint("Please enter your row number: ") - 1;
+      *x = getint("Please enter your row number: ");
       putChar('\n');
-      if (*x == ERROR_CODE) {
-        askYesNoQuit();
+      if (*x == QUIT_CODE) {
+        if(askYesNoQuit()) {
+          return QUIT_CODE;
+        }
       }
-    }while(*x < 0 || *x > 9);
+      *x -= 1;
+    } while(*x < 0 || *x >= 9);
 
     do {
-        *y = getint("Please enter your column number: ")-1;
+        *y = getint("Please enter your column number: ");
         putChar('\n');
-        if (*y == ERROR_CODE) {
-          askYesNoQuit();
+        if (*y == QUIT_CODE) {
+          if(askYesNoQuit()) {
+            return QUIT_CODE;
+          }
         }
-    }while(*y < 0 || *y > 9);
+        *y -= 1;
+    } while(*y < 0 || *y >= 9);
 
     do {
         num = getint("Please enter a number between 1 and 9: ");
         putChar('\n');
-        if (num == ERROR_CODE) {
-          askYesNoQuit();
+        if (num == QUIT_CODE) {
+          if(askYesNoQuit()) {
+            return QUIT_CODE;
+          }
         }
-    } while(num < 0 || num > 9);
+    } while(num <= 0 || num > 9);
 
     return num;
 }

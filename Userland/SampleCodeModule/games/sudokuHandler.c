@@ -76,20 +76,31 @@ char askYesNoSud() {
 
 
 void greetingSud() {
-	int heigth = 0;
+	// int heigth = 0;
     clearScreen();
 
-    heigth += SCREEN_HEIGTH;
-    printFrom("Instructions:", heigth += SCREEN_HEIGTH, 0);
-    printFrom("Press ENTER to begin your adventure", heigth += SCREEN_HEIGTH, 0);
-    printFrom("Press \"q\" to quit", heigth += SCREEN_HEIGTH, 0);
-    printFrom("Welcome to Sudoku! Are you ready to play?\n", heigth += SCREEN_HEIGTH, 0);
-    printFrom("Here are the rules:\n", heigth += SCREEN_HEIGTH, 0);
-    printFrom("Rule 1 - Each row must contain the numbers from 1 to 9, without repetitions\n", heigth += SCREEN_HEIGTH, 0);
-    printFrom("Rule 2 - Each column must contain the numbers from 1 to 9, without repetitions\n", heigth += SCREEN_HEIGTH, 0);
-    printFrom("Rule 3 - The digits can only occur once per block (nonet)\n", heigth += SCREEN_HEIGTH, 0);
-    printFrom("Rule 4 - The sum of every single row, column and nonet must equal 45\n", heigth += SCREEN_HEIGTH, 0);
-    printFrom("\nHave fun!\n\n", heigth += SCREEN_HEIGTH, 0);
+    // heigth += SCREEN_HEIGTH;
+    // printFrom("Instructions:", heigth += SCREEN_HEIGTH, 0);
+    // printFrom("Press ENTER to begin your adventure", heigth += SCREEN_HEIGTH, 0);
+    // printFrom("Press \"q\" to quit", heigth += SCREEN_HEIGTH, 0);
+    // printFrom("Welcome to Sudoku! Are you ready to play?\n", heigth += SCREEN_HEIGTH, 0);
+    // printFrom("Here are the rules:\n", heigth += SCREEN_HEIGTH, 0);
+    // printFrom("Rule 1 - Each row must contain the numbers from 1 to 9, without repetitions\n", heigth += SCREEN_HEIGTH, 0);
+    // printFrom("Rule 2 - Each column must contain the numbers from 1 to 9, without repetitions\n", heigth += SCREEN_HEIGTH, 0);
+    // printFrom("Rule 3 - The digits can only occur once per block (nonet)\n", heigth += SCREEN_HEIGTH, 0);
+    // printFrom("Rule 4 - The sum of every single row, column and nonet must equal 45\n", heigth += SCREEN_HEIGTH, 0);
+    // printFrom("\nHave fun!\n\n", heigth += SCREEN_HEIGTH, 0);
+
+    printstring("Welcome to Sudoku! Are you ready to play?\n");
+    printstring("Here are the rules:\n");
+    printstring("Rule 1 - Each row must contain the numbers from 1 to 9, without repetitions\n");
+    printstring("Rule 2 - Each column must contain the numbers from 1 to 9, without repetitions\n");
+    printstring("Rule 3 - The digits can only occur once per block (nonet)\n");
+    printstring("Rule 4 - The sum of every single row, column and nonet must equal 45\n");
+    printstring("Instructions:\n");
+    printstring("Press ENTER to begin your adventure\n");
+    printstring("Press \"q\" to quit\n");
+    printstring("\nHave fun!\n\n");
 
     while ((getChar()) != '\n');
 }
