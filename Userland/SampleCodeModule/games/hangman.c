@@ -38,15 +38,15 @@ void play(){
     int mistakes = 0;
     short found[WORDLEN] = {0};
 
-    char n = 0;
+    int n;
 
     do {
 
-        print("Enter a number from 1 to 20: ");
-        //scanf("%d",&n);
-        n = scan();        //que le paso?
+        n = getint("Enter a number from 1 to 20: ");
+        
+    } while(n > 9 || n <= 0);
 
-    } while(n > '9' || n < '0');
+    // n = getint("Enter a number from 1 to 20: ");
 
     /* Elegir una palabra*/
     word = dictionary[n - '1'];
@@ -79,7 +79,7 @@ void play(){
 }
 
 char readLetter(void) {
-    char letter = 0;
+    char letter;
     do {
         print("Please enter a letter: ");
         letter = getChar();
