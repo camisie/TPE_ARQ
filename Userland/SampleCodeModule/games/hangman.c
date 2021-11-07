@@ -42,8 +42,8 @@ void play(){
         n = getint("Enter a number from 1 to 20: ");
         // if (n == ERROR_CODE) {
         //     askYesNoQuit();
-        // }    
-        
+        // }
+
     } while(n > 9 || n < 0);
 
 
@@ -58,7 +58,6 @@ void play(){
     // print("\nA wild pokemon has appeared! (◍ㅇᆽㅇ◍) Good luck :)\n");
 
     do {
-        //putChar("/n");
         println("");
         printWord(word, found);
         letter = readLetter();
@@ -87,10 +86,10 @@ char readLetter(void) {
     char letter;
     print("Please enter a letter: ");
     do {
-       
+
         letter = getChar();
 
-        if(letter != '\n')
+        if(letter == '\n')
             DELETE_BUFFER;
 
     } while(letter < 'a' || letter > 'z');
