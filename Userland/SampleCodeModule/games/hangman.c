@@ -44,7 +44,7 @@ void play(){
         //     askYesNoQuit();
         // }
 
-    } while(n > 9 || n < 0);
+    } while(n > 20 || n < 0);
 
 
     /* Elegir una palabra*/
