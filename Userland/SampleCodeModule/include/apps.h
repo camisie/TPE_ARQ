@@ -37,5 +37,7 @@ void about();
 
 void runGames();
 
+void time2(void);
+
 
 #endif

@@ -2,6 +2,7 @@
 #include <syscalls.h>
 #include <standardIO.h>
 #include <stdarg.h>
+#include <string.h>
 
 #define CHAR_COLOR 0xFFFFFF
 

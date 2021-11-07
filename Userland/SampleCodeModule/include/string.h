@@ -27,6 +27,10 @@ void toMayus(char *string);
 
 char* itoa(int value, char* buffer, int base);
 
+void itoa1(int value, char *buffer, int length);
+
 long atoi(const char* S);
+
+void timeToString(date myDate, char *buffer, char separator, int length);
 
 #endif

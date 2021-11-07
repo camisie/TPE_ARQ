@@ -78,13 +78,22 @@ void printMem(int args, char argv[][25]) {
 
 void time(int args, char argv[][25]) {
     if (!checkArgs(args, 0)) return;
-
     dateInfo info;
     getTime(&info);
     char fecha[19] = {0};
-    print("Local date at the moment is: ");
+    print("Local date: ");
     dateToString(&info, fecha, '/', 18);
     print(fecha);
+    println("");
+}
+
+void time2(void) {
+    dateInfo info;
+    getTime(&info);
+    char fecha[19] = {0};
+    printFrom("Local time: ", 200, 675);
+    timeToString(&info, fecha, '/', 9);
+    printFrom(fecha, 200, 775);
     println("");
 }
 
@@ -124,7 +133,7 @@ void throwInvOpCode() {
 }
 
 void about() {
-    printcln("Shernell 1.0 by Camila Sierra, Malena Vasquez & Magdalena Flores Levalle.", 0xcfd7e6);
+    printcln("PokeOS 1.0 by Camila Sierra, Malena Vasquez & Magdalena Flores Levalle.", 0xcfd7e6);
 }
 
 int checkArgs(int args, int expected) {
@@ -138,4 +147,8 @@ int checkArgs(int args, int expected) {
 void runGames() {
     clearScreen();
     divideScreen();
+    printFrom("cronometro", 200, 200);
+    time2();
+    printFrom("hangman", 550, 200);
+    printFrom("sudoku", 550, 750);
 }

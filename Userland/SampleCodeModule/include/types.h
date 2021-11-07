@@ -13,7 +13,6 @@ typedef struct dateInfo {
     int hour;
     int minutes;
     int seconds;
-
 } dateInfo;
 
 typedef struct dateInfo *date;

@@ -34,4 +34,6 @@ int getScreenHeight();
 
 int getScreenWidth();
 
+void sys_divide();
+
 #endif

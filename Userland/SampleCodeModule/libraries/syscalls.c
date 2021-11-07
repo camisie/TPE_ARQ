@@ -52,6 +52,6 @@ int getWidth() {
     return _syscall(SCREEN_WIDTH);
 }
 
-int divideScreen() {
-    return _syscall(DIVIDE_SCREEN);
+void divideScreen() {
+     _syscall(DIVIDE_SCREEN);
 }

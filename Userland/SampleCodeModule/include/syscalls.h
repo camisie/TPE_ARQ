@@ -24,4 +24,6 @@ int getHeight();
 
 int getWidth();
 
+void divideScreen();
+
 #endif
