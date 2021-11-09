@@ -34,6 +34,8 @@ int syscallDispatcher(uint64_t call, uint64_t firstP, uint64_t secondP, uint64_t
             return 0;
         case STOPWATCHTICKS_ID:
             return getStopwatchTicks();
+        case TICKSELAPSED_ID:
+            return ticks_elapsed();
         default:
             return -1;
     }

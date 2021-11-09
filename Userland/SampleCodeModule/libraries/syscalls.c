@@ -16,6 +16,7 @@
 #define DIVIDE_SCREEN 14
 #define SET_STOPWATCH 15
 #define STOPWATCH_TICKS 16
+#define TICKS_ELAPSED 17
 
 
 int read(char *buffer, int length) {
@@ -65,4 +66,8 @@ void setStopwatch(int option) {
 
 int getStopwatchTicks() {
     return _syscall(STOPWATCH_TICKS);
+}
+
+int getTicksElapsed() {
+    return _syscall(TICKS_ELAPSED);
 }
