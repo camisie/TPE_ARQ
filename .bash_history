@@ -1,48 +1,3 @@
-<<<<<<< Updated upstream
-cd root
-make clean all
-make clean all
-make clean all
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-=======
->>>>>>> Stashed changes
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-make clean all
-make clean all
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root 
-make clean all
-exit
 cd root
 make clean all
 exit
@@ -535,3 +490,11 @@ make clean all
 exit
 >>>>>>> Stashed changes
 >>>>>>> 0775af7fd6135e65259ef402cd910a8a0a86f29c
+cd root
+make clean all
+exit
+cd root
+make clean all
+make clean all
+make clean all
+exit

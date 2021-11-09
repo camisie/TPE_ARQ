@@ -8,8 +8,6 @@ int syscallDispatcher(uint64_t call, uint64_t firstP, uint64_t secondP, uint64_t
             return sys_read((int) firstP, (char *) secondP);
         case SYS_WRITE_ID:
             return sys_write((int) firstP, (char *) secondP, (int) thirdP, (int) fourthP, (int) fifthP);
-        case SYS_DRAW_ID:
-            return sys_draw((int *) firstP, (int) secondP, (int) thirdP, (int) fourthP, (int) fifthP);
         case SYS_CLEAR_ID:
             sys_clear();
             return 0;

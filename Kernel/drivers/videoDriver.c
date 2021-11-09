@@ -52,11 +52,6 @@ struct vbe_mode_info_structure {
 } __attribute__((packed));
 
 struct vbe_mode_info_structure *screen_data = (void *) 0x5C00; //VBEModeInfoBlock
-/*
-    uint16_t pitch;           // number of bytes per horizontal line
-    uint16_t width;           // width in pixels
-    uint16_t height;       // height in pixels
-*/
 
 void checkPosition();
 
@@ -130,27 +125,6 @@ int drawChar(int character, int color) {
     }
     checkPosition();
     return ret;
-}
-
-int drawMatrix(int *matrix, int row, int col, int rows, int columns) {
-    if (row < 0 || col < 0 || row + rows > screen_data->height || col + columns > screen_data->width) {
-        return 0;
-    }
-    int x = col;
-    int y = row;
-    int drawnPixels = 0;
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < columns; j++) {
-            if (matrix[i * columns + j] >= 0 && matrix[i * columns + j] <= 0xFFFFFF) {
-                drawPixel(y, x, matrix[i * columns + j]);
-                drawnPixels++;
-            }
-            x++;
-        }
-        y++;
-        x = col;
-    }
-    return drawnPixels;
 }
 
 void clearScreen() {

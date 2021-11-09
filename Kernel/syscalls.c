@@ -15,9 +15,6 @@ int sys_write(int length, char *toWrite, int row, int col, int color) {
     return printStringFrom(toWrite, length, row, col, color);
 }
 
-int sys_draw(int *matrix, int row, int col, int rows, int columns) {
-    return drawMatrix(matrix, row, col, rows, columns);
-}
 
 void getTime(date myDate) {
     getLocalDate(myDate);
