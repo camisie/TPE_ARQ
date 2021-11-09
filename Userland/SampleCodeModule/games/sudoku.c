@@ -35,21 +35,16 @@ void clearLine(int row, int col) {
 void startSudoku() {
     printSudoku(board);
     findNextPos(&xPos, &yPos);
-    printstring(675,675,"Enter number for pos {%d, %d}: ", xPos+1, yPos+1);
+    printstring(675,650,"Enter number for pos {%d, %d}: ", xPos+1, yPos+1);
 }
 
 
 void playSudoku(char c) {
     int num = c - '0';
-    clearLine(675, 675);
-    if(board[xPos][yPos] != 0) {
-        printstring(675,675,"This position is already taken!");
-    }
-    if(board[xPos][yPos] != 0) {
-        printstring(675,675,"This position is already taken!");
-    }
-    else if(num != completeBoard[xPos][yPos]) {
-        printstring(675,675,"Wrong number :( Try again!");
+    clearLine(675, 650);
+    clearLine(700, 650);
+    if(num != completeBoard[xPos][yPos]) {
+        printstring(700,650,"Wrong number :( Try again!");
     }
     else if (num == QUIT_CODE) {
         return;
@@ -60,30 +55,7 @@ void playSudoku(char c) {
         printSudoku(board);
     }
     int next = findNextPos(&xPos, &yPos);
-    printstring(675,675,"Enter number for pos {%d, %d}: ", xPos+1, yPos+1);
-
-    // while(found < 81){
-    //     num = readNumber(&x, &y);
-    //     if(board[x][y] != 0) {
-    //         printstring(675,675,"This position is already taken!");
-    //     }
-    //     else if(num != completeBoard[x][y]) {
-    //         printstring(675,675,"Wrong number :( Try again!");
-    //     }
-    //     else if (num == QUIT_CODE) {
-    //         return;
-    //     }
-    //     else {
-    //         printstring(675,675,"Good job :) Keep going!");
-    //         board[x][y] = num;
-    //         found += 1;
-    //     }
-    //     printSudoku(board);
-    // }
-    // printSudoku(completeBoard);
-    // print("Well done! You are a genius!");
-    // return;
-
+    printstring(675,650,"Enter number for pos {%d, %d}: ", xPos+1, yPos+1);
 }
 
 void printSudoku(int board[N][N]) {
