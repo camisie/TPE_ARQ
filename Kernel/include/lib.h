@@ -21,6 +21,5 @@ int getMonth();
 
 int getYear();
 
-int read_keyboard();
 
 #endif

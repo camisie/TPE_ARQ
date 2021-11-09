@@ -11,4 +11,6 @@ void takeSnapshot(uint64_t *rsp);
 
 void fillWithRegs(uint64_t *buffer);
 
+extern unsigned char getScancode();
+
 #endif

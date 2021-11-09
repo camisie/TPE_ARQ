@@ -5,7 +5,7 @@ GLOBAL getHours
 GLOBAL getDay
 GLOBAL getMonth
 GLOBAL getYear
-GLOBAL read_keyboard
+GLOBAL getScancode
 
 section .text
 	
@@ -81,11 +81,11 @@ getYear:
 	ret
 ;---------------------------------------------------------
 
-;---------------------------------------------------------
-;	Keyboard Controller (ports 60h & 64h)
-;---------------------------------------------------------
-read_keyboard:
-	mov rax, 0
-	in al,0x60   
-	ret
+; -----------------------------------
+; getScancode: retorna el codigo de teclado ("scancode") ;del buffer.
+; -----------------------------------
+getScancode:
+    mov rax, 0
+    in al, 60h
+    ret
 ;---------------------------------------------------------
