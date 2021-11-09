@@ -1,40 +1,3 @@
-<<<<<<< HEAD
-cd root
-make clean all
-exit
-cd root 
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-=======
->>>>>>> 02583967ea9c150884e44efeb61a9bd46883b875
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-make clean all
-exit
 cd root
 make clean all
 exit
@@ -524,3 +487,14 @@ exit
 cd root
 make clean all
 exit
+cd root
+make clean all
+exit
+cd root
+make clean all
+make clean all
+exit
+cd root
+make clean all
+make clean all
+make clean all

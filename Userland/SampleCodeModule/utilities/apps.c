@@ -162,10 +162,10 @@ void runGames() {
             playSudoku(c);
         }
         else if(c == 'P') {
-            setStopwatch(1);
+            changeStatus();
         }
         else if(c == 'R') {
-            setStopwatch(0);
+            resetStopwatch();
         }
         else if(c == '0') {
             exit = 1;
