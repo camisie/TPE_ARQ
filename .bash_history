@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 cd root
 make clean all
 exit
@@ -11,6 +12,8 @@ cd root
 make clean all
 exit
 cd root
+=======
+>>>>>>> 02583967ea9c150884e44efeb61a9bd46883b875
 make clean all
 exit
 cd root
@@ -487,14 +490,37 @@ make clean all
 exit
 cd root
 make clean all
+<<<<<<< HEAD
 make clean all
 make clean all
 cd root
 make clear all
+=======
+exit
+cd root
 make clean all
 exit
 cd root
 make clean all
+exit
+cd root
+make clean all
+make clean all
+exit
+cd root
+make clean all
+>>>>>>> 02583967ea9c150884e44efeb61a9bd46883b875
+make clean all
+exit
+cd root
+make clean all
+<<<<<<< HEAD
+=======
+exit
+cd root
+make clean all
+exit
+>>>>>>> 02583967ea9c150884e44efeb61a9bd46883b875
 cd root
 make clean all
 exit

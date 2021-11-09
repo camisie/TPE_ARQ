@@ -1,5 +1,9 @@
 #include <miniHangman.h>
 
+#define RED_COLOR 0xFF0000
+#define GREY_COLOR 0x808080
+#define YELLOW_COLOR 0xFFEA00
+
 void printWordMini(const char word[], const short found[]);
 char readLetterMini(void);
 void printPokeballMini(void);
@@ -10,9 +14,9 @@ char dictionary[][WORDLEN] = {"bulbasaur", "butterfree", "charmander", "marowak"
 int mistakes;
 
 void startMiniHangman() {
-    printstring(420, 20,"Welcome to MINI-HANGMAN! Gotta catch 'em all!");
-    printstring(440, 20,"Guess the pokemon's name in order to win!");
-    printstring(460, 20, "You have maximum 6 mistakes allowed :o");
+    printcFrom("Welcome to MINI-HANGMAN! Gotta catch 'em all!", 420, 20, YELLOW_COLOR);
+    printcFrom("Guess the pokemon's name in order to win!", 440, 20, YELLOW_COLOR);
+    printcFrom("You have maximum 6 mistakes allowed :o", 460, 20, YELLOW_COLOR);
 
     dateInfo info;
     getTime(&info);
@@ -67,10 +71,10 @@ void printWordMini(const char word[], const short found[]) {
 }
 
 void printPokeballMini(void) {
-    printFrom("       ___    ", 570, 100);
-    printFrom("     /#####\\   ", 590, 100);
-    printFrom("   /#########\\     ", 605, 100);
-    printFrom("  |=====O=====|   ",620, 100);
+    printcFrom("       ___    ", 570, 100,RED_COLOR);
+    printcFrom("     /#####\\   ", 590, 100,RED_COLOR);
+    printcFrom("   /#########\\     ", 605, 100,RED_COLOR);
+    printcFrom("  |=====O=====|   ",620, 100,GREY_COLOR );
     printFrom("   \\         /   ",640, 100);
     printFrom("     '_____'    ",650, 100);
 }
