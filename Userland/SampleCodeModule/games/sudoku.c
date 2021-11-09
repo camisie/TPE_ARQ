@@ -1,4 +1,6 @@
 #include <sudoku.h>
+#define PINK_COLOR 0xf03fcd
+#define GREEN_COLOR 0x00FF00
 
 #define N 9
 
@@ -44,13 +46,14 @@ void playSudoku(char c) {
     clearLine(675, 650);
     clearLine(700, 650);
     if(num != completeBoard[xPos][yPos]) {
-        printstring(700,650,"Wrong number :( Try again!");
+        printcFrom("Wrong number :( Try again!", 700, 650, PINK_COLOR);
     }
     else if (num == QUIT_CODE) {
         return;
     }
     else {
-        printstring(675,675,"Good job :) Keep going!");
+        printcFrom("Good job :) Keep going!", 700, 650, GREEN_COLOR);
+        //printstring(675,650,"Good job :) Keep going!");
         board[xPos][yPos] = num;
         printSudoku(board);
     }
