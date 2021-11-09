@@ -2,14 +2,14 @@
 
 #define CHUNK 200
 #define SCREEN_HEIGTH 16
-#define BLUE_GREETING 0x0000FF
+#define BLUE_GREETING 0x00FFFF
 #define MIDDLE_TITLE 40
 
 //-------------------------------------------
 //                  POKEOS
 //-------------------------------------------
 
-char *initGreet = "user@TPArqui:~$ ";
+char *initGreet = "user@TPE_ARQ:~$ ";
 int startup = 1;
 
 void startShell() {
@@ -26,7 +26,7 @@ void runShell() {
     println("");
     
     while (1) {
-        printc(initGreet, 0x00FF00);
+        printc(initGreet, 0xFF8C00);
         char content[CHUNK] = {0};
         int contentLength = 0;
         while ((c = getChar()) != '\n') {

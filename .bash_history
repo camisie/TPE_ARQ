@@ -1,12 +1,3 @@
-exi
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-exit
 cd root
 make clean all
 exit
@@ -496,5 +487,14 @@ make clean all
 exit
 cd root
 make clean all
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root
 make clean all
 exit
