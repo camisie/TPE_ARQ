@@ -46,7 +46,7 @@ void play(){
             return;
           }
         }
-      } while(n < 0 || n >= 20);
+    } while(n < 1 || n > 20);
 
     /* Elegir una palabra*/
     word = dictionary[n - 1];

@@ -27,9 +27,6 @@ int syscallDispatcher(uint64_t call, uint64_t firstP, uint64_t secondP, uint64_t
         case DIVIDE_SCREEN_ID:
             sys_divide();
             return 0;
-        case SYS_STOPWATCH_ID:
-            setStopwatch((int) firstP);
-            return 0;
         case STOPWATCHTICKS_ID:
             return getStopwatchTicks();
         case TICKSELAPSED_ID:

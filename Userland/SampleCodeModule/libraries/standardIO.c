@@ -77,10 +77,10 @@ int getint(const char * message, int row, int col) {
           }
         } else if ((auxx == 'q' || auxx == 'Q') && !isQ && numLen == 0) {
           isQ = 1;
-          putCharFrom(auxx, row, col+strlen(message)*8);
+          putCharFrom(auxx, row, col);
         } else if (auxx >= '0' && auxx <= '9' && !isQ) {
           num[numLen++] = auxx;
-          putCharFrom(auxx, row, col+strlen(message)*8);
+          putCharFrom(auxx, row, col);
         }
       }
   }

@@ -10,7 +10,6 @@
 #define SCREEN_HEIGHT_ID 12
 #define SCREEN_WIDTH_ID 13
 #define DIVIDE_SCREEN_ID 14
-#define SYS_STOPWATCH_ID 15
 #define STOPWATCHTICKS_ID 16
 #define TICKSELAPSED_ID 17
 #define MEM_BYTES 32
@@ -35,7 +34,6 @@ int getScreenHeight();
 int getScreenWidth();
 
 void sys_divide();
-
 
 
 #endif
