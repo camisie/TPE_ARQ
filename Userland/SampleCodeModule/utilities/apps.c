@@ -151,12 +151,11 @@ void runGames() {
     divideScreen();
     initStopwatch();
     printFrom("Local time: ", 200, 675);
+    playSudoku();
     miniPlay();
-
     setStopwatch(1);
 
     while(1) {
         time2();
-        playSudoku();
     }
 }

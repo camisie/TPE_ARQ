@@ -14,7 +14,7 @@ void miniPlay(){
     int n;
 
      do {
-        printstring(420, 20,"Welcome to mini-hangman");
+        printstring(420, 20,"Welcome to MINI-HANGMAN");
         n = getint("Enter a number from 1 to 20: ", 440, 20);
         if (n == QUIT_CODE) {
           if(askYesNoQuit()) {

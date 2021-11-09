@@ -55,10 +55,10 @@ void playSudoku(){
     while(found < 81){
         printSudoku(board);
         num = readNumber(&x, &y);
-        if(board[x][y] != 0) {
+        if(board[x-1][y-1] != 0) {
             printstring(675,675,"This position is already taken!");
         }
-        else if(num != completeBoard[x][y]) {
+        else if(num != completeBoard[x-1][y-1]) {
             printstring(675,675,"Wrong number :( Try again!");
         }
         else if (num == QUIT_CODE) {
@@ -66,12 +66,12 @@ void playSudoku(){
         }
         else {
             printstring(675,675,"Good job :) Keep going!");
-            board[x][y] = num;
+            board[x-1][y-1] = num;
             found += 1;
         }
     }
     printSudoku(completeBoard);
-    print("\nWell done! You are a genius!\n");
+    print("Well done! You are a genius!");
     return;
 
 }
