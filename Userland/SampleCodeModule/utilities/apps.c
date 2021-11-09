@@ -10,6 +10,7 @@
 #include <stopwatch.h>
 #include <sudoku.h>
 #include <miniHangman.h>
+#include <shell.h>
 
 
 #define MEM_BYTES 32
@@ -150,11 +151,29 @@ void runGames() {
     divideScreen();
     initStopwatch();
     printFrom("Local time: ", 200, 675);
-    miniPlay();
-    playSudoku();
-    setStopwatch(1);
 
-    while(1) {
+    int exit = 0;
+    while(!exit) {
         time2();
+        char c = getChar();
+        // if(c == '\n')
+        //     DELETE_BUFFER;
+        if(c >= 'a' && c <= 'z') {
+            miniPlay();
+        }
+        else if(c >= '1' && c <= '9') {
+            playSudoku();
+        }
+        else if(c == 'P') {
+            setStopwatch(1);
+        }
+        else if(c == 'R') {
+            setStopwatch(0);
+        }
+        else if(c == '0') {
+            exit = 1;
+        }
+        stopwatch();
     }
+    returnToShell();
 }

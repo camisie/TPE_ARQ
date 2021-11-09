@@ -51,13 +51,6 @@ void play(){
     /* Elegir una palabra*/
     word = dictionary[n - 1];
 
-
-    // printLogo();
-
-    // print("\nGotta catch 'em all! Welcome to pokemon-hangman, the game where you have to guess the pokemon's name in order to win!\n");
-    // print("You have maximum 6 mistakes allowed :o Remember that all alphabet are in lower case\n");
-    // print("\nA wild pokemon has appeared! (◍ㅇᆽㅇ◍) Good luck :)\n");
-
     do {
         println("");
         printWord(word, found);
