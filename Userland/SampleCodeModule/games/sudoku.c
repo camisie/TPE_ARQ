@@ -8,6 +8,10 @@ int hasPrevSudGame() {
     return exitSave;
 }
 
+void clearLine(int row, int col) {
+    printstring(row, col, "                                 ");
+}
+
 void runSudoku(int entry) {
     clearScreen();
     // if (entry == 0 || exitWithoutSave) newGame(); //initializes or clears board
@@ -55,10 +59,10 @@ void playSudoku(){
     while(found < 81){
         printSudoku(board);
         num = readNumber(&x, &y);
-        if(board[x-1][y-1] != 0) {
+        if(board[x][y] != 0) {
             printstring(675,675,"This position is already taken!");
         }
-        else if(num != completeBoard[x-1][y-1]) {
+        else if(num != completeBoard[x][y]) {
             printstring(675,675,"Wrong number :( Try again!");
         }
         else if (num == QUIT_CODE) {
@@ -66,7 +70,7 @@ void playSudoku(){
         }
         else {
             printstring(675,675,"Good job :) Keep going!");
-            board[x-1][y-1] = num;
+            board[x][y] = num;
             found += 1;
         }
     }
@@ -92,6 +96,7 @@ int readNumber(int *x, int *y) {
     int num;
     do {
       *x = getint("Enter row number: ", 650, 675);
+      clearLine(675, 675);
       if (*x == QUIT_CODE) {
         if(askYesNoQuit()) {
           return QUIT_CODE;
@@ -99,9 +104,12 @@ int readNumber(int *x, int *y) {
       }
       *x -= 1;
     } while(*x < 0 || *x >= 9);
+    clearLine(650, 675);
+
 
     do {
         *y = getint("Enter column number: ", 650, 675);
+        clearLine(675, 675);
         if (*y == QUIT_CODE) {
           if(askYesNoQuit()) {
             return QUIT_CODE;
@@ -109,16 +117,16 @@ int readNumber(int *x, int *y) {
         }
         *y -= 1;
     } while(*y < 0 || *y >= 9);
-
+    clearLine(650, 675);
     do {
-        num = getint("Enter number between 1 and 9: ", 650, 675);
-        putChar('\n');
+        num = getint("Enter number (1-9): ", 650, 675);
+        clearLine(675, 675);
         if (num == QUIT_CODE) {
           if(askYesNoQuit()) {
             return QUIT_CODE;
           }
         }
     } while(num <= 0 || num > 9);
-
+    clearLine(650, 675);
     return num;
 }
