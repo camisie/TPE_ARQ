@@ -23,8 +23,6 @@ void putChar(char c);
 
 void putCharFrom(char c, int row, int col);
 
-// int scan(char * str, ...);
-
 void printstring(char * fmt, ...);
 
 int getint(const char * message);

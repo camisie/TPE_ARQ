@@ -3,7 +3,7 @@
 #include <hangman.h>
 #include <pokemon.h>
 #include <syscalls.h>
-// #include <gameHandler.h>
+#include <gameHandler.h>
 
 //Macro para vaciar el buffer
 #define DELETE_BUFFER while (getChar() != '\n')
@@ -16,11 +16,11 @@
 
 // #define ERROR_CODE -1
 
-int exitSaveH = 0, exitWithoutSaveH = 0;
-
-int hasPrevGame() {
-    return exitSaveH;
-}
+// int exitSaveH = 0, exitWithoutSaveH = 0;
+//
+// int hasPrevGame() {
+//     return exitSaveH;
+// }
 
 void runHangman(int entry) {
     clearScreen();
@@ -37,15 +37,16 @@ void play(){
 
     int n;
 
-    do {
-
+      do {
+        print("Enter \"q\" if you want to quit the game. Once you start, there's no turning back!\n");
         n = getint("Enter a number from 1 to 20: ");
-        // if (n == ERROR_CODE) {
-        //     askYesNoQuit();
-        // }
-
-    } while(n > 20 || n < 0);
-
+        putChar('\n');
+        if (n == QUIT_CODE) {
+          if(askYesNoQuit()) {
+            return;
+          }
+        }
+      } while(n < 0 || n >= 20);
 
     /* Elegir una palabra*/
     word = dictionary[n - 1];
@@ -132,24 +133,3 @@ int completeWord(const char word[], const short found[]) {
 
     return complete;
 }
-
-// int getintH(const char message[], ... ) {
-//     int n, leave = 0;
-//     va_list ap;
-//
-//     do {
-//         va_start(ap, message);
-//         vprintf(message, ap);
-//         va_end(ap);
-//
-//         if ( scanf("%d",&n) != 1)
-//         {
-//             print("\nIncorrect data\n");
-//             DELETE_BUFFER;
-//         }
-//         else
-//             leave = 1;
-//     } while (! leave);
-//     DELETE_BUFFER;
-//     return n;
-// }
