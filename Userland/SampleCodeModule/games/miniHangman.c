@@ -76,7 +76,7 @@ void printPokeballMini(void) {
     printcFrom("   /#########\\     ", 605, 100,RED_COLOR);
     printcFrom("  |=====O=====|   ",620, 100,GREY_COLOR );
     printFrom("   \\         /   ",640, 100);
-    printFrom("     '_____'    ",650, 100);
+    printFrom("     ` ___ '    ",650, 100);
 }
 
 // int completeWordMini(const char word[], const short found[]) {
