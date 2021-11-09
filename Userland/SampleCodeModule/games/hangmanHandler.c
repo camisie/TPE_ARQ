@@ -7,13 +7,11 @@
 #include <pokemon.h>
 
 #define SCREEN_HEIGTH 16
-#define YELLOW_GREETING 0xFFE81F
-#define MIDDLE_TITLE 296
+#define RED_GREETING 0xFF6347
+#define MIDDLE_TITLE_P 200
+#define MIDDLE_TITLE_H 300
 #define WORDLEN 20
 
-// void printHangmanInfo();
-
-void printHangmanMenu();
 
 char askYesNo();
 
@@ -41,52 +39,45 @@ char askYesNo() {
     return ans;
 }
 
-// void showLogo(){
-// 	int heigth = 0
-// 	printcFrom("\t\t--------------------------------------------\n", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-// 	printcFrom("\t\t| #  #   #   #   #  #### #   #   #   #   # |\n", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-// 	printcFrom("\t\t| #  #  # #  ##  # #     ## ##  # #  ##  # |\n", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-// 	printcFrom("\t\t| #### ##### # # # #  ## # # # ##### # # # |\n", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-// 	printcFrom("\t\t| #  # #   # #  ## #   # #   # #   # #  ## |\n", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-// 	printcFrom("\t\t| #  # #   # #   #  ###  #   # #   # #   # |\n", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-// 	printcFrom("\t\t--------------------------------------------\n", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-// }
-
 void greeting() {
-	int heigth = 250;
+    int heigth = 0;
     clearScreen();
-    printLogo();
-  //
-  //   printcFrom("--------------------------------------------", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-	// printcFrom("| #  #   #   #   #  #### #   #   #   #   # |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-	// printcFrom("| #  #  # #  ##  # #     ## ##  # #  ##  # |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-	// printcFrom("| #### ##### # # # #  ## # # # ##### # # # |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-	// printcFrom("| #  # #   # #  ## #   # #   # #   # #  ## |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-	// printcFrom("| #  # #   # #   #  ###  #   # #   # #   # |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-	// printcFrom("--------------------------------------------", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, YELLOW_GREETING);
-    heigth += SCREEN_HEIGTH * 2;
+    //printLogo();
+    //heigth += SCREEN_HEIGTH;
+    heigth += SCREEN_HEIGTH * 8;
+
+    printcFrom("                                     ,'\\ ", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_P, RED_GREETING);
+    printcFrom("       _.----.        ____         ,'  _\\   ___    ___     ____", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_P, RED_GREETING);
+    printcFrom("   _,-'       `.     |    |  /`.   \\,-'    |   \\  /   |   |    \\  |`.", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_P, RED_GREETING);
+    printcFrom("   \\      __    \\    '-.  | /   `.  ___    |    \\/    |   '-.   \\ |  |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_P, RED_GREETING);
+    printcFrom("    \\.    \\ \\   |  __  |  |/    ,','_  `.  |          | __  |    \\|  |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_P, RED_GREETING);
+    printcFrom("      \\    \\/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_P, RED_GREETING);
+    printcFrom("       \\     ,-'/  /   \\    ,'   | \\/ / ,`.|         /  /   \\  |     |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_P, RED_GREETING);
+    printcFrom("        \\    \\ |   \\_/  |   `-.  \\    `'  /|  |    ||   \\_/  | |\\    |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_P, RED_GREETING);
+    printcFrom("         \\    \\ \\      /       `-.`.___,-' |  |\\  /| \\      /  | |   |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_P, RED_GREETING);
+    printcFrom("          \\    \\ `.__,'|  |`-._    `|      |__| \\/ |  `.__,'|  | |   |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_P, RED_GREETING);
+    printcFrom("           \\_.-'       |__|    `-._ |              '-.|     '-.| |   |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_P, RED_GREETING);
+    printcFrom("                                   `'                            '-._|", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_P, RED_GREETING);
 
     heigth += SCREEN_HEIGTH;
-    printFrom("Instructions:\n", heigth += SCREEN_HEIGTH, 0);
-    printFrom("Press ENTER to begin your adventure", heigth += SCREEN_HEIGTH, 0);
-    // printFrom("Press \"q\" to quit without saving or \"p\" to pause your game", heigth += SCREEN_HEIGTH, 0);
-    printFrom("\nGotta catch 'em all! Welcome to pokemon-hangman, the game where you have to guess the pokemon's name in order to win!\n", heigth += SCREEN_HEIGTH, 0);
-    printFrom("You have maximum 6 mistakes allowed :o Remember that all alphabet are in lower case\n", heigth += SCREEN_HEIGTH, 0);
-    printFrom("\nA wild pokemon has appeared! Good luck :)\n", heigth += SCREEN_HEIGTH, 0);
 
-    // printFrom("Insert your game plays in the following notation:", heigth += SCREEN_HEIGTH, 0);
-    // printFrom("First, put the coordinates of the piece you want to move, then to where you want to move it",
-    //           heigth += SCREEN_HEIGTH, 0);
-    // printFrom("For example, \"a1a3\" moves the piece from the position a1 to a3", heigth += SCREEN_HEIGTH, 0);
-    // printFrom("Insert 00 to generate a  short clastling", heigth += SCREEN_HEIGTH, 0);
-    // printFrom("Insert 000 to generate a  long clastling", heigth += SCREEN_HEIGTH, 0);
-    // printFrom(
-    //         "When executing a promotion, when the other side has been reached, a menu with options from which to choose will appear.",
-    //         heigth += SCREEN_HEIGTH, 0);
+    printcFrom("--------------------------------------------", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_H, RED_GREETING);
+    printcFrom("| #  #   #   #   #  #### #   #   #   #   # |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_H, RED_GREETING);
+    printcFrom("| #  #  # #  ##  # #     ## ##  # #  ##  # |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_H, RED_GREETING);
+    printcFrom("| #### ##### # # # #  ## # # # ##### # # # |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_H, RED_GREETING);
+    printcFrom("| #  # #   # #  ## #   # #   # #   # #  ## |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_H, RED_GREETING);
+    printcFrom("| #  # #   # #   #  ###  #   # #   # #   # |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_H, RED_GREETING);
+    printcFrom("--------------------------------------------", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_H, RED_GREETING);
+   
 
-    // heigth += SCREEN_HEIGTH;
-    // printFrom("Dont worry if you mistype or enter an invalid move! We will take care of that!", heigth += SCREEN_HEIGTH,
-    //           0);
-    printFrom("Enjoy!", heigth += SCREEN_HEIGTH, 0);
+    heigth += SCREEN_HEIGTH;
+    int color = 0xFFEA00;
+    printcFrom("\nInstructions:", heigth += SCREEN_HEIGTH, 0, color);
+    printcFrom("\nPress ENTER to begin your adventure", heigth += SCREEN_HEIGTH, 0, color);
+    printcFrom("\nPress \"q\" to quit without saving or \"p\" to pause your game", heigth += SCREEN_HEIGTH, 0, color);
+    printcFrom("\nGotta catch 'em all! Welcome to pokemon-hangman, the game where you have to guess the pokemon's name in order to win!", heigth += SCREEN_HEIGTH, 0, color);
+    printcFrom("\nYou have maximum 6 mistakes allowed :o Remember that all alphabet are in lower case", heigth += SCREEN_HEIGTH, 0, color);
+    printcFrom("\nA wild pokemon has appeared! Good luck :)\n", heigth += SCREEN_HEIGTH, 0, color);
+    printcFrom("\nEnjoy!", heigth += SCREEN_HEIGTH, 0, color);
     while ((getChar()) != '\n');
 }
