@@ -3,7 +3,6 @@
 #include <string.h>
 #include <hangmanHandler.h>
 #include <syscalls.h>
-#include <maths.h>
 #include <pokemon.h>
 
 #define SCREEN_HEIGTH 16
@@ -68,7 +67,7 @@ void greeting() {
     printcFrom("| #  # #   # #  ## #   # #   # #   # #  ## |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_H, RED_GREETING);
     printcFrom("| #  # #   # #   #  ###  #   # #   # #   # |", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_H, RED_GREETING);
     printcFrom("--------------------------------------------", heigth += SCREEN_HEIGTH, MIDDLE_TITLE_H, RED_GREETING);
-   
+
 
     heigth += SCREEN_HEIGTH;
     int color = 0xFFEA00;
