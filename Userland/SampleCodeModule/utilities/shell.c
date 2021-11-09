@@ -1,12 +1,16 @@
 #include <shell.h>
 
 #define CHUNK 200
+#define SCREEN_HEIGTH 16
+#define BLUE_GREETING 0x0000FF
+#define MIDDLE_TITLE 40
 
 //-------------------------------------------
 //                  POKEOS
 //-------------------------------------------
 
-char *initGreet = "user@TPArqui:~$ ";
+//s = strcpy(s, "@TPArqui:~$ ");
+char *initGreet = "usr@TPArqui:~$ ";
 int startup = 1;
 
 void startShell() {
@@ -21,7 +25,7 @@ void runShell() {
     char c;
     println("");
     while (1) {
-        printc(initGreet, 0x22ab00);
+        printc(initGreet, 0x00FF00);
         char content[CHUNK] = {0};
         int contentLength = 0;
         while ((c = getChar()) != '\n') {
@@ -79,20 +83,23 @@ void returnToShell() {
   runShell();
 }
 
+
 void printOSLogo(void) {
-    println("PPPPPPPPPPPPPPPPP        OOOOOOOOO     KKKKKKKKK    KKKKKKKEEEEEEEEEEEEEEEEEEEEEE     OOOOOOOOO        SSSSSSSSSSSSSSS");
-    println("P::::::PPPPPP:::::P  OO:::::::::::::OO K:::::::K    K:::::KE::::::::::::::::::::E OO:::::::::::::OO S:::::SSSSSS::::::S");
-    println("PP:::::P     P:::::PO:::::::OOO:::::::OK:::::::K   K::::::KEE::::::EEEEEEEEE::::EO:::::::OOO:::::::OS:::::S     SSSSSSS");
-    println("P::::P     P:::::PO::::::O   O::::::OKK::::::K  K:::::KKK  E:::::E       EEEEEEO::::::O   O::::::OS:::::S");
-    println("P::::P     P:::::PO:::::O     O:::::O  K:::::K K:::::K     E:::::E             O:::::O     O:::::OS:::::S");
-    println("P::::PPPPPP:::::P O:::::O     O:::::O  K::::::K:::::K      E::::::EEEEEEEEEE   O:::::O     O:::::O S::::SSSS");
-    println("P:::::::::::::PP  O:::::O     O:::::O  K:::::::::::K       E:::::::::::::::E   O:::::O     O:::::O  SS::::::SSSSS");
-    println("P::::PPPPPPPPP    O:::::O     O:::::O  K:::::::::::K       E:::::::::::::::E   O:::::O     O:::::O    SSS::::::::SS");
-    println("P::::P            O:::::O     O:::::O  K::::::K:::::K      E::::::EEEEEEEEEE   O:::::O     O:::::O       SSSSSS::::S");
-    println("P::::P            O:::::O     O:::::O  K:::::K K:::::K     E:::::E             O:::::O     O:::::O            S:::::S");
-    println("P::::P            O::::::O   O::::::OKK::::::K  K:::::KKK  E:::::E       EEEEEEO::::::O   O::::::O            S:::::S");
-    println("PP::::::PP          O:::::::OOO:::::::OK:::::::K   K::::::KEE::::::EEEEEEEE:::::EO:::::::OOO:::::::OSSSSSSS     S:::::S");
-    println("P::::::::P           OO:::::::::::::OO K:::::::K    K:::::KE::::::::::::::::::::E OO:::::::::::::OO S::::::SSSSSS:::::S");
-    println("P::::::::P             OO:::::::::OO   K:::::::K    K:::::KE::::::::::::::::::::E   OO:::::::::OO   S:::::::::::::::SS");
-    println("PPPPPPPPPP               OOOOOOOOO     KKKKKKKKK    KKKKKKKEEEEEEEEEEEEEEEEEEEEEE     OOOOOOOOO      SSSSSSSSSSSSSSS");
+    int heigth = 0;
+    heigth += SCREEN_HEIGTH * 16;
+    printcFrom("PPPPPPPPPPPPPPPPP        OOOOOOOOO     KKKKKKKKK    KKKKKKKEEEEEEEEEEEEEEEEEEEEEE     OOOOOOOOO        SSSSSSSSSSSSSSS", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, BLUE_GREETING);
+    printcFrom("P::::::PPPPPP:::::P  OO:::::::::::::OO K:::::::K    K:::::KE::::::::::::::::::::E OO:::::::::::::OO S:::::SSSSSS::::::S", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, BLUE_GREETING);
+    printcFrom("PP:::::P     P:::::PO:::::::OOO:::::::OK:::::::K   K::::::KEE::::::EEEEEEEEE::::EO:::::::OOO:::::::OS:::::S     SSSSSSS", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, BLUE_GREETING);
+    printcFrom("P::::P     P:::::PO::::::O   O::::::OKK::::::K  K:::::KKK  E:::::E       EEEEEEO::::::O   O::::::OS:::::S", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, BLUE_GREETING);
+    printcFrom("P::::P     P:::::PO:::::O     O:::::O  K:::::K K:::::K     E:::::E             O:::::O     O:::::OS:::::S", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, BLUE_GREETING);
+    printcFrom("P::::PPPPPP:::::P O:::::O     O:::::O  K::::::K:::::K      E::::::EEEEEEEEEE   O:::::O     O:::::O S::::SSSS", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, BLUE_GREETING);
+    printcFrom("P:::::::::::::PP  O:::::O     O:::::O  K:::::::::::K       E:::::::::::::::E   O:::::O     O:::::O  SS::::::SSSSS", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, BLUE_GREETING);
+    printcFrom("P::::PPPPPPPPP    O:::::O     O:::::O  K:::::::::::K       E:::::::::::::::E   O:::::O     O:::::O    SSS::::::::SS", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, BLUE_GREETING);
+    printcFrom("P::::P            O:::::O     O:::::O  K::::::K:::::K      E::::::EEEEEEEEEE   O:::::O     O:::::O       SSSSSS::::S", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, BLUE_GREETING);
+    printcFrom("P::::P            O:::::O     O:::::O  K:::::K K:::::K     E:::::E             O:::::O     O:::::O            S:::::S", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, BLUE_GREETING);
+    printcFrom("P::::P            O::::::O   O::::::OKK::::::K  K:::::KKK  E:::::E       EEEEEEO::::::O   O::::::O            S:::::S", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, BLUE_GREETING);
+    printcFrom("PP::::::PP          O:::::::OOO:::::::OK:::::::K   K::::::KEE::::::EEEEEEEE:::::EO:::::::OOO:::::::OSSSSSSS     S:::::S", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, BLUE_GREETING);
+    printcFrom("P::::::::P           OO:::::::::::::OO K:::::::K    K:::::KE::::::::::::::::::::E OO:::::::::::::OO S::::::SSSSSS:::::S", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, BLUE_GREETING);
+    printcFrom("P::::::::P             OO:::::::::OO   K:::::::K    K:::::KE::::::::::::::::::::E   OO:::::::::OO   S:::::::::::::::SS", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, BLUE_GREETING);
+    printcFrom("PPPPPPPPPP               OOOOOOOOO     KKKKKKKKK    KKKKKKKEEEEEEEEEEEEEEEEEEEEEE     OOOOOOOOO      SSSSSSSSSSSSSSS", heigth += SCREEN_HEIGTH, MIDDLE_TITLE, BLUE_GREETING);
 }

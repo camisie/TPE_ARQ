@@ -7,7 +7,7 @@
 #include <pokemon.h>
 
 #define SCREEN_HEIGTH 16
-#define RED_GREETING 0xFF6347
+#define RED_GREETING 0xFF0000
 #define MIDDLE_TITLE_P 200
 #define MIDDLE_TITLE_H 300
 #define WORDLEN 20
