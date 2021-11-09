@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 cd root
 make clean all
 exit
@@ -21,6 +22,8 @@ make clean all
 exit
 cd root
 make clean all
+=======
+>>>>>>> Stashed changes
 exit
 cd root
 make clean all
@@ -493,8 +496,39 @@ exit
 cd root
 make clean all
 make clean all
+<<<<<<< Updated upstream
 exit
 cd root
 make clean all
 make clean all
 make clean all
+=======
+make clean all
+exit
+cd root
+make clean all
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root
+make clean all
+eexit
+exit
+cd root
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root
+make clean all
+exit
+>>>>>>> Stashed changes

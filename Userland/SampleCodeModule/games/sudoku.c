@@ -1,6 +1,7 @@
 #include <sudoku.h>
 #define PINK_COLOR 0xf03fcd
 #define GREEN_COLOR 0x00FF00
+#define ORANGE_COLOR 0xFFA500
 
 #define N 9
 
@@ -35,6 +36,9 @@ void clearLine(int row, int col) {
 }
 
 void startSudoku() {
+    printcFrom("Welcome to SUDOKU!", 450, 690, ORANGE_COLOR);
+    // printcFrom("Guess the pokemon's name in order to win!", 440, 20, YELLOW_COLOR);
+    // printcFrom("You have maximum 6 mistakes allowed :o", 460, 20, YELLOW_COLOR);
     printSudoku(board);
     findNextPos(&xPos, &yPos);
     printstring(675,650,"Enter number for pos {%d, %d}: ", xPos+1, yPos+1);
