@@ -75,6 +75,8 @@ void play(){
         printstring(-1, -1,"\n\nOh no! The wild %s fled! Better try next time :(\n", word);
         //print("\n\nOh no! The wild %s fled! (╯°□°)╯︵◓ Better try next time :(\n");
     else{
+        putChar('\n');
+        printWord(word, found);
         printstring(-1,-1,"\n\nGotcha! %s was caught! Congrats!\n\n", word);
         //print("\n\nGotcha! %s was caught! (∩ᄑ_ᄑ)⊃*･｡*･ Congrats!\n\n");
         iChooseYou(n-1);

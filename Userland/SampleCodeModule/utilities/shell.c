@@ -9,13 +9,13 @@
 //                  POKEOS
 //-------------------------------------------
 
-//s = strcpy(s, "@TPArqui:~$ ");
-char *initGreet = "usr@TPArqui:~$ ";
+char *initGreet = "user@TPArqui:~$ ";
 int startup = 1;
 
 void startShell() {
     if(startup) {
         printOSLogo();
+        println("Enter help to see the commands available");
         startup = 0;
     }
     runShell();
@@ -24,6 +24,7 @@ void startShell() {
 void runShell() {
     char c;
     println("");
+    
     while (1) {
         printc(initGreet, 0x00FF00);
         char content[CHUNK] = {0};
