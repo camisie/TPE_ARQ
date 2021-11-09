@@ -14,6 +14,9 @@
 #define SCREEN_HEIGHT 12
 #define SCREEN_WIDTH 13
 #define DIVIDE_SCREEN 14
+#define SET_STOPWATCH 15
+#define STOPWATCH_TICKS 16
+
 
 int read(char *buffer, int length) {
     return _syscall(READ_SYSCALL, length, buffer);
@@ -54,4 +57,12 @@ int getWidth() {
 
 void divideScreen() {
      _syscall(DIVIDE_SCREEN);
+}
+
+void setStopwatch(int option) {
+    _syscall(SET_STOPWATCH);
+}
+
+int getStopwatchTicks() {
+    return _syscall(STOPWATCH_TICKS);
 }

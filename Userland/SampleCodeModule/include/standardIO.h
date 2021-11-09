@@ -23,7 +23,7 @@ void putChar(char c);
 
 void putCharFrom(char c, int row, int col);
 
-void printstring(char * fmt, ...);
+void printstring(int row, int col, char * fmt, ...);
 
 int getint(const char * message);
 

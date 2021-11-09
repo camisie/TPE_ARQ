@@ -87,14 +87,14 @@ void printSudoku(int board[N][N]) {
         int rta = i + 1;
         // print("rta");
         // print("%d |", i+1);s
-        printstring("%d |", rta);
+        printstring(-1,-1,"%d |", rta);
         //print(" | ");
 
         for(int j=0; j < N; j++){
             if(j !=0 && j%3 == 0){
                 print(" | ");
             }
-            printstring(" %d ",board[i][j]);
+            printstring(-1,-1," %d ",board[i][j]);
           }
         print("\n");
     }

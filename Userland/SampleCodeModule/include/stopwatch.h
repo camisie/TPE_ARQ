@@ -1,0 +1,2 @@
+void initStopwatch();
+void stopwatch();

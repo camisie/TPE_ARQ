@@ -2,19 +2,13 @@
 #include <stdint.h>
 
 static unsigned long ticks = 0;
-
-typedef struct function {
-    void (*f)(void);
-
-    int enabled;
-} function;
-
-function alarm = {0, 0};
+static unsigned long chronometerTicks = 0;
+int chronometerEnabled = 0;
 
 void timerHandler() {
     ticks++;
-    if (alarm.enabled) {
-        alarm.f();
+    if (chronometerEnabled) {
+        chronometerTicks++;
     }
 }
 
@@ -24,4 +18,23 @@ int ticks_elapsed() {
 
 int seconds_elapsed() {
     return ticks / 18;
+}
+
+void setStopwatch(int option) {
+    //reset
+    if(option == 0) {
+        chronometerEnabled = 1;
+        chronometerTicks = 0;
+    }
+    //pause <-> play
+    else if(option == 1 && chronometerEnabled == 0) {
+        chronometerEnabled = 1;
+    }
+    else {
+        chronometerEnabled = 0;
+    }
+}
+
+int getStopwatchTicks() {
+    return chronometerTicks++;
 }

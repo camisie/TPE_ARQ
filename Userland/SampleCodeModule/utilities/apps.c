@@ -7,6 +7,8 @@
 #include <stdint.h>
 #include <lib64.h>
 #include <apps.h>
+#include <stopwatch.h>
+
 
 #define MEM_BYTES 32
 #define BUFFER64_BITS 20
@@ -145,11 +147,15 @@ int checkArgs(int args, int expected) {
 void runGames() {
     clearScreen();
     divideScreen();
-    printFrom("cronometro", 200, 200);
+    //printstring(200,200, "cronometro %d", 1);
     printFrom("Local time: ", 200, 675);
     printFrom("hangman", 550, 200);
     printFrom("sudoku", 550, 750);
+
+    initStopwatch();
+    setStopwatch(1);
+    stopwatch();
     while(1) {
         time2();
-    }    
+    }
 }

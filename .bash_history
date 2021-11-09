@@ -1,77 +1,3 @@
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-make clean all
-exit
-cd root
-make clean all
-make clean all
-make clean all
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-make clean all
-make clean all
-make clean all
-exit
-cd root
-make clean all
-exit
-cd roo
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-exit
-cd root
-make clean all
-make clean all
 make clean all
 make clean all
 make clean all
@@ -496,5 +422,79 @@ cd root
 make clean all
 make clean all
 make clean all
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root 
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root
+make clean all
+make clean all
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root
+make clean all
+make clean all
+make clean all
+make clean all
+make clean all
+make clean all
+make clean all
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root
+make clean all
+exot
+exit
+cd root
+make clean all
+exit
+cd make all
+cd root
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root
+make clean all
+exit
+cd root
 make clean all
 exit

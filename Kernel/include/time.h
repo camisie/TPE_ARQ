@@ -7,5 +7,9 @@ int ticks_elapsed();
 
 int seconds_elapsed();
 
+void setStopwatch(int option);
+
+int getStopwatchTicks();
+
 
 #endif

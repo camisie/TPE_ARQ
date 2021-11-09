@@ -1,4 +1,5 @@
 #include <syscalls.h>
+#include <time.h>
 
 int syscallDispatcher(uint64_t call, uint64_t firstP, uint64_t secondP, uint64_t thirdP, uint64_t fourthP,
                       uint64_t fifthP) {
@@ -27,6 +28,12 @@ int syscallDispatcher(uint64_t call, uint64_t firstP, uint64_t secondP, uint64_t
             return getScreenWidth();
         case DIVIDE_SCREEN_ID:
             sys_divide();
+            return 0;
+        case SYS_STOPWATCH_ID:
+            setStopwatch((int) firstP);
+            return 0;
+        case STOPWATCHTICKS_ID:
+            return getStopwatchTicks();
         default:
             return -1;
     }

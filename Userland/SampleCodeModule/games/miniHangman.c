@@ -36,15 +36,15 @@ void miniPlay(){
         {
             mistakes++;
             if (CHANCES - mistakes > 0)
-                printstring("Attack missed!\tRemaining attempts: %d", CHANCES - mistakes);
+                printstring(-1,-1,"Attack missed!\tRemaining attempts: %d", CHANCES - mistakes);
         }
         putChar('\n');
     } while (mistakes < CHANCES && !completeWord(word, found));
 
     if (mistakes == CHANCES)
-        printstring("\n\nOh no! The wild %s fled! Better try next time :(\n", word);
+        printstring(-1,-1,"\n\nOh no! The wild %s fled! Better try next time :(\n", word);
     else{
-        printstring("\n\nGotcha! %s was caught! Congrats!\n\n", word);
+        printstring(-1,-1,"\n\nGotcha! %s was caught! Congrats!\n\n", word);
         printPokeball();
     }
     return;
