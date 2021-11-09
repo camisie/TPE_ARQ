@@ -57,8 +57,8 @@ void putCharFrom(char c, int row, int col) {
     printFrom(buffer, row, col);
 }
 
-int getint(const char * message) {
-  printstring(-1, -1,"%s", message);
+int getint(const char * message, int row, int col) {
+  printstring(row, col,"%s", message);
   char auxx;
   char num[MAX_NUM_LEN] = {0};
   int numLen = 0;
@@ -76,10 +76,10 @@ int getint(const char * message) {
           }
         } else if ((auxx == 'q' || auxx == 'Q') && !isQ && numLen == 0) {
           isQ = 1;
-          putChar(auxx);
+          putCharFrom(auxx, row, col + strlen(message) * 8);
         } else if (auxx >= '0' && auxx <= '9' && !isQ) {
           num[numLen++] = auxx;
-          putChar(auxx);
+          putCharFrom(auxx, row, col + strlen(message) * 8);
         }
       }
   }
