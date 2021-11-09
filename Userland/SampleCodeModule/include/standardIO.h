@@ -25,6 +25,6 @@ void putCharFrom(char c, int row, int col);
 
 void printstring(int row, int col, char * fmt, ...);
 
-int getint(const char * message);
+int getint(const char * message, int row, int col);
 
 #endif

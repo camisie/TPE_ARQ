@@ -8,6 +8,8 @@
 #include <lib64.h>
 #include <apps.h>
 #include <stopwatch.h>
+#include <sudoku.h>
+#include <miniHangman.h>
 
 
 #define MEM_BYTES 32
@@ -147,15 +149,14 @@ int checkArgs(int args, int expected) {
 void runGames() {
     clearScreen();
     divideScreen();
-    //printstring(200,200, "cronometro %d", 1);
-    printFrom("Local time: ", 200, 675);
-    printFrom("hangman", 550, 200);
-    printFrom("sudoku", 550, 750);
-
     initStopwatch();
+    printFrom("Local time: ", 200, 675);
+    miniPlay();
+
     setStopwatch(1);
-    stopwatch();
+
     while(1) {
         time2();
+        playSudoku();
     }
 }

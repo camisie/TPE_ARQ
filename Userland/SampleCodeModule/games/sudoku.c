@@ -55,61 +55,43 @@ void playSudoku(){
     while(found < 81){
         printSudoku(board);
         num = readNumber(&x, &y);
-        if(board[x][y] != 0)
-            print("\nThis position is already taken!\n\n");
-        else if(num != completeBoard[x][y]){
-            print("\nWrong number :( Try again!\n\n");
+        if(board[x][y] != 0) {
+            printstring(675,675,"This position is already taken!");
+        }
+        else if(num != completeBoard[x][y]) {
+            printstring(675,675,"Wrong number :( Try again!");
         }
         else if (num == QUIT_CODE) {
-          return;
+            return;
         }
         else {
-            print("\nGood job :) Keep going!\n\n");
+            printstring(675,675,"Good job :) Keep going!");
             board[x][y] = num;
             found += 1;
         }
     }
-
     printSudoku(completeBoard);
     print("\nWell done! You are a genius!\n");
-
     return;
 
 }
 
 void printSudoku(int board[N][N]) {
-    print("    1  2  3     4  5  6     7  8  9 \n");
-    print("    -  -  -  -  -  -  -  -  -  -  - \n");
-    for(int i=0; i < N; i++){
-        if(i !=0 && i%3 == 0){
-            print("    -  -  -  -  -  -  -  -  -  -  - \n");
+    int row = 500, col = 675;
+    for(int i = 0; i < N; i++) {;
+        for(int j = 0; j < N; j++) {
+            printstring(row, col, "%d", board[i][j]);
+            col += 20;
         }
-        int rta = i + 1;
-        // print("rta");
-        // print("%d |", i+1);s
-        printstring(-1,-1,"%d |", rta);
-        //print(" | ");
-
-        for(int j=0; j < N; j++){
-            if(j !=0 && j%3 == 0){
-                print(" | ");
-            }
-            printstring(-1,-1," %d ",board[i][j]);
-          }
-        print("\n");
+        col = 675;
+        row += 15;
     }
-    print("\n");
 }
 
 int readNumber(int *x, int *y) {
     int num;
-    // char auxx, auxy, auxnum;
-    //
-    // printf("Please enter your row number: \n");
-    // while ((auxx = getchar()) != )
     do {
-      *x = getint("Please enter your row number: ");
-      putChar('\n');
+      *x = getint("Enter row number: ", 650, 675);
       if (*x == QUIT_CODE) {
         if(askYesNoQuit()) {
           return QUIT_CODE;
@@ -119,8 +101,7 @@ int readNumber(int *x, int *y) {
     } while(*x < 0 || *x >= 9);
 
     do {
-        *y = getint("Please enter your column number: ");
-        putChar('\n');
+        *y = getint("Enter column number: ", 650, 675);
         if (*y == QUIT_CODE) {
           if(askYesNoQuit()) {
             return QUIT_CODE;
@@ -130,7 +111,7 @@ int readNumber(int *x, int *y) {
     } while(*y < 0 || *y >= 9);
 
     do {
-        num = getint("Please enter a number between 1 and 9: ");
+        num = getint("Enter number between 1 and 9: ", 650, 675);
         putChar('\n');
         if (num == QUIT_CODE) {
           if(askYesNoQuit()) {

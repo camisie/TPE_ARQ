@@ -39,7 +39,7 @@ void play(){
 
       do {
         print("Enter \"q\" if you want to quit the game. Once you start, there's no turning back!\n");
-        n = getint("Enter a number from 1 to 20: ");
+        n = getint("Enter a number from 1 to 20: ", -1, -1);
         putChar('\n');
         if (n == QUIT_CODE) {
           if(askYesNoQuit()) {
