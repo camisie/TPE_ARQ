@@ -13,7 +13,6 @@ void initStopwatch() {
     printstring(40, 20,"- Press 'R' to reset");
     printstring(50, 20,"Make sure letters entered are in uppercase!");
     printstring(200, 125, "CHRONOMETER:");
-    printstring(200, 225, "00::00::00");
     // changeCursorState(0);
     setStopwatch(0);
     return;
@@ -21,27 +20,27 @@ void initStopwatch() {
 
 void stopwatch() {
     int stopwatchTicks = getStopwatchTicks();
-    int dsec = stopwatchTicks % 100;
+    int millis = stopwatchTicks * 5000 / 91;
 
-    if (dsec < 10) {
-        printstring(200, 250, "0%d", dsec);
+    if (millis < 10) {
+        printstring(200, 400, "0%d", millis);
     }
     else {
-        printstring(200, 300, "%d", dsec);
+        printstring(200, 400, "%d", millis);
     }
 
-    int sec = stopwatchTicks / 18;
+    int sec = stopwatchTicks * 91/ 5;
     int min = sec / 60;
-    sec = sec % 60;
+    sec %= 60;
 
     if (sec != secAux) {
         secAux = sec;
         if (sec < 10) {
-            printstring(200, 275,"0%d::", sec);
+            printstring(200, 350,"0%d::", sec);
 
         }
         else {
-            printstring(200, 275,"%d::", sec);
+            printstring(200, 350,"%d::", sec);
         }
     }
 

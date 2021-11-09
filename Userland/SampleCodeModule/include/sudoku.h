@@ -15,10 +15,9 @@ void printSudoku(int board[N][N]);
 
 int readNumber(int *x, int *y);
 
-int hasPrevSudGame();
+void startSudoku();
 
-void runSudoku(int entry);
+void playSudoku(char c);
 
-void playSudoku();
-
+int findNextPos(int *x, int *y);
 #endif

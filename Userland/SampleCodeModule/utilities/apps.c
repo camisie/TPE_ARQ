@@ -1,5 +1,4 @@
 #include <hangmanHandler.h>
-#include <sudokuHandler.h>
 #include <syscalls.h>
 #include <standardIO.h>
 #include <types.h>
@@ -115,10 +114,6 @@ void hangman(int args, char argv[][25]) {            //hacer despues para que se
     hangmanHandler(args, argv);
 }
 
-void sudoku(int args, char argv[][25]) {
-    sudokuHandler(args, argv);
-}
-
 void clear(int args, char argv[][25]) {
     if (!checkArgs(args, 0)) return;
     clearScreen();
@@ -151,6 +146,7 @@ void runGames() {
     divideScreen();
     initStopwatch();
     startMiniHangman();
+    startSudoku();
     printFrom("Local time: ", 200, 675);
 
     int exit = 0;
@@ -163,7 +159,7 @@ void runGames() {
             playMiniHangman(c);
         }
         else if(c >= '1' && c <= '9') {
-            playSudoku();
+            playSudoku(c);
         }
         else if(c == 'P') {
             setStopwatch(1);
