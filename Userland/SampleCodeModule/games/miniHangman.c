@@ -4,66 +4,51 @@ void printWordMini(const char word[], const short found[]);
 char readLetterMini(void);
 void printPokeballMini(void);
 
-void miniPlay(){
+char *word;
+short found[WORDLEN];
+char dictionary[][WORDLEN] = {"bulbasaur", "butterfree", "charmander", "marowak", "slowpoke", "eevee", "gastly", "geodude", "growlithe", "jigglypuff", "meowth", "pidgey", "pikachu", "poliwag", "ponyta", "psyduck", "rattata", "ditto", "squirtle", "horsea"};
+int mistakes;
 
-    char dictionary[][WORDLEN] = {"bulbasaur", "butterfree", "charmander", "marowak", "slowpoke", "eevee", "gastly", "geodude", "growlithe", "jigglypuff", "meowth", "pidgey", "pikachu", "poliwag", "ponyta", "psyduck", "rattata", "ditto", "squirtle", "horsea"};
-    char letter, *word;
-    int mistakes = 0;
-    short found[WORDLEN] = {0};
+void startMiniHangman() {
+    printstring(420, 20,"Welcome to MINI-HANGMAN! Gotta catch 'em all!");
+    printstring(440, 20,"Guess the pokemon's name in order to win!");
+    printstring(460, 20, "You have maximum 6 mistakes allowed :o");
 
-    int n;
-
-      printstring(420, 20,"Welcome to MINI-HANGMAN! Gotta catch 'em all!");
-      printstring(440, 20,"Guess the pokemon's name in order to win!");
-      printstring(460, 20, "You have maximum 6 mistakes allowed :o");
-
-      dateInfo info;
-      getTime(&info);
-      n = info.seconds % 20;
-      // if (n == QUIT_CODE) {
-      //   if(askYesNoQuit()) {
-      //     return;
-      //   }
-      // }
-
-    /* Elegir una palabra*/
+    dateInfo info;
+    getTime(&info);
+    int n = info.seconds % 20;
     word = dictionary[n];
 
-    do {
-        printWordMini(word, found);
-        letter = readLetterMini();
-        if (!checkLetter(word, letter, found))
-        {
-            mistakes++;
-            if (CHANCES - mistakes > 0)
-                printstring(490,20,"Attack missed! Remaining attempts: %d", CHANCES - mistakes);
-        }
-    } while (mistakes < CHANCES && !completeWord(word, found));
-
-    if (mistakes == CHANCES) {
-        printstring(560,20,"Oh no! The wild %s fled! Better try next time :(", word);
+    mistakes = 0;
+    for(int i = 0; i < WORDLEN; i++) {
+        found[i] = 0;
     }
-    else {
-        printWordMini(word, found);
-        printstring(560,20,"Gotcha! %s was caught! Congrats!", word);
-        printPokeballMini();
-    }
-    return;
-
+    printWordMini(word, found);
 }
 
-char readLetterMini(void) {
-    char letter;
-    do {
-
-        letter = getChar();
-
-        if(letter == '\n')
-            DELETE_BUFFER;
-
-    } while(letter < 'a' || letter > 'z');
-
-    return letter;
+void playMiniHangman(char letter) {
+    printstring(600, 20, "%s", word);
+    if(mistakes < CHANCES && !completeWord(word, found)) {
+        if (!checkLetter(word, letter, found)) {
+            mistakes++;
+            if (CHANCES - mistakes > 0) {
+                printstring(490,20,"Attack missed! Remaining attempts: %d", CHANCES - mistakes);
+            }
+        }
+        else {
+            printWordMini(word, found);
+        }
+    }
+    else {
+        if (mistakes == CHANCES) {
+            printstring(560,20,"Oh no! The wild %s fled! Better try next time :(", word);
+        }
+        else {
+            printWordMini(word, found);
+            printstring(560,20,"Gotcha! %s was caught! Congrats!", word);
+            printPokeballMini();
+        }
+    }
 }
 
 

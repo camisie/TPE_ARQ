@@ -18,8 +18,7 @@
 //Longitud maxima que puede tener una palabra
 #define WORDLEN 20
 
-void runMiniHangman(int entry);
-
-void miniPlay();
+void playMiniHangman(char letter);
+void startMiniHangman();
 
 #endif

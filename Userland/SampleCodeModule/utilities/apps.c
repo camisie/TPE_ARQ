@@ -150,6 +150,7 @@ void runGames() {
     clearScreen();
     divideScreen();
     initStopwatch();
+    startMiniHangman();
     printFrom("Local time: ", 200, 675);
 
     int exit = 0;
@@ -159,7 +160,7 @@ void runGames() {
         // if(c == '\n')
         //     DELETE_BUFFER;
         if(c >= 'a' && c <= 'z') {
-            miniPlay();
+            playMiniHangman(c);
         }
         else if(c >= '1' && c <= '9') {
             playSudoku();
