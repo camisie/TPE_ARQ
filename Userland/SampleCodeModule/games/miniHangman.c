@@ -31,7 +31,6 @@ void startMiniHangman() {
 }
 
 void playMiniHangman(char letter) {
-    printstring(600, 20, "%s", word);
     if(mistakes < CHANCES && !completeWord(word, found)) {
         if (!checkLetter(word, letter, found)) {
             mistakes++;
@@ -78,13 +77,3 @@ void printPokeballMini(void) {
     printFrom("   \\         /   ",640, 100);
     printFrom("     ` ___ '    ",650, 100);
 }
-
-// int completeWordMini(const char word[], const short found[]) {
-//     int i, complete = 1;
-//
-//     for (i = 0; word[i] && complete; i++)
-//         if (found[i] == 0)
-//             complete = 0;
-//
-//     return complete;
-// }
