@@ -74,7 +74,7 @@ void greeting() {
     int color = 0xFFEA00;
     printcFrom("\nInstructions:", heigth += SCREEN_HEIGTH, 0, color);
     printcFrom("\nPress ENTER to begin your adventure", heigth += SCREEN_HEIGTH, 0, color);
-    printcFrom("\nPress \"q\" to quit without saving or \"p\" to pause your game", heigth += SCREEN_HEIGTH, 0, color);
+    printcFrom("\nPress \"q\" to quit the game", heigth += SCREEN_HEIGTH, 0, color);
     printcFrom("\nGotta catch 'em all! Welcome to pokemon-hangman, the game where you have to guess the pokemon's name in order to win!", heigth += SCREEN_HEIGTH, 0, color);
     printcFrom("\nYou have maximum 6 mistakes allowed :o Remember that all alphabet are in lower case", heigth += SCREEN_HEIGTH, 0, color);
     printcFrom("\nA wild pokemon has appeared! Good luck :)\n", heigth += SCREEN_HEIGTH, 0, color);
