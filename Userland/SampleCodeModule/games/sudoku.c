@@ -48,13 +48,6 @@ void playSudoku(){
     int num, x, y;
     int found = 30;
 
-    // printf("Welcome to Sudoku! Are you ready to play?\n");
-    // printf("Here are the rules:\n");
-    // printf("Rule 1 - Each row must contain the numbers from 1 to 9, without repetitions\n");
-    // printf("Rule 2 - Each column must contain the numbers from 1 to 9, without repetitions\n");
-    // printf("Rule 3 - The digits can only occur once per block (nonet)\n");
-    // printf("Rule 4 - The sum of every single row, column and nonet must equal 45\n");
-    // printf("\nHave fun!\n\n");
 
     while(found < 81){
         printSudoku(board);

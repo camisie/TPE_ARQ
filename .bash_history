@@ -5,9 +5,6 @@ make clean all
 exit
 cd root
 make clean all
-exit
-cd root
-make clean all
 exi
 exit
 cd root
@@ -490,6 +487,9 @@ make clean all
 exit
 cd root
 make clean all
+make clean all
+exit
+cd root
 make clean all
 exit
 cd root

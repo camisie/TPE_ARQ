@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#define PROGRAMS 11
+#define PROGRAMS 10
 
 typedef struct {
     char name[12];
