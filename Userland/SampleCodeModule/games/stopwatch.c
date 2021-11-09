@@ -9,10 +9,11 @@ void initStopwatch() {
     secAux = 0;
     minAux = 0;
     printstring(10, 20, "Instructions:");
-    printstring(30, 20,"- Press 'p' to play/pause");
-    printstring(40, 20,"- Press 'r' to reset");
+    printstring(30, 20,"- Press 'P' to play/pause");
+    printstring(40, 20,"- Press 'R' to reset");
+    printstring(50, 20,"Make sure letters entered are in uppercase!");
     printstring(200, 125, "CHRONOMETER:");
-    printstring(200, 250, "00::00::00");
+    printstring(200, 225, "00::00::00");
     // changeCursorState(0);
     setStopwatch(0);
     return;
