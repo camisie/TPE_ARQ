@@ -27,4 +27,6 @@ void printstring(int row, int col, char * fmt, ...);
 
 int getint(const char * message, int row, int col);
 
+int rand();
+
 #endif

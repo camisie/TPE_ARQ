@@ -8,6 +8,7 @@
 #define DELETE_BUFFER while (getchar() != '\n')
 #define MAX_NUM_LEN 13
 #define ISNUM(c) ((c) >= '0' && (c) <= '9')
+static long holdrand = 1L;
 
 void println(char *toPrint) {
     printcFrom(toPrint, -1, -1, CHAR_COLOR);
@@ -130,4 +131,8 @@ void printstring(int row, int col, char * fmt, ...) {
     i++;
   }
   printFrom(buffer, row, col);
+}
+
+int rand() {
+  return (((holdrand = holdrand * 214013L + 2531011L) >> 16) & 0x7fff);
 }

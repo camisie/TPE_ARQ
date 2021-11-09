@@ -13,18 +13,21 @@ void miniPlay(){
 
     int n;
 
-     do {
-        printstring(420, 20,"Welcome to MINI-HANGMAN");
-        n = getint("Enter a number from 1 to 20: ", 440, 20);
-        if (n == QUIT_CODE) {
-          if(askYesNoQuit()) {
-            return;
-          }
-        }
-      } while(n < 0 || n >= 20);
+      printstring(420, 20,"Welcome to MINI-HANGMAN! Gotta catch 'em all!");
+      printstring(440, 20,"Guess the pokemon's name in order to win!");
+      printstring(460, 20, "You have maximum 6 mistakes allowed :o");
+
+      dateInfo info;
+      getTime(&info);
+      n = info.seconds % 20;
+      // if (n == QUIT_CODE) {
+      //   if(askYesNoQuit()) {
+      //     return;
+      //   }
+      // }
 
     /* Elegir una palabra*/
-    word = dictionary[n - 1];
+    word = dictionary[n];
 
     do {
         printWordMini(word, found);
@@ -33,16 +36,16 @@ void miniPlay(){
         {
             mistakes++;
             if (CHANCES - mistakes > 0)
-                printstring(480,20,"Attack missed! Remaining attempts: %d", CHANCES - mistakes);
+                printstring(490,20,"Attack missed! Remaining attempts: %d", CHANCES - mistakes);
         }
     } while (mistakes < CHANCES && !completeWord(word, found));
 
     if (mistakes == CHANCES) {
-        printstring(540,20,"Oh no! The wild %s fled! Better try next time :(", word);
+        printstring(560,20,"Oh no! The wild %s fled! Better try next time :(", word);
     }
     else {
         printWordMini(word, found);
-        printstring(540,20,"Gotcha! %s was caught! Congrats!", word);
+        printstring(560,20,"Gotcha! %s was caught! Congrats!", word);
         printPokeballMini();
     }
     return;
@@ -66,7 +69,7 @@ char readLetterMini(void) {
 
 void printWordMini(const char word[], const short found[]) {
     int i;
-    int row = 500, col = 20;
+    int row = 520, col = 20;
     for (i = 0; word[i]; i++)
     {
         if (found[i])
@@ -79,12 +82,12 @@ void printWordMini(const char word[], const short found[]) {
 }
 
 void printPokeballMini(void) {
-    printFrom("       ____    ", 550, 100);
-    printFrom("     /#####\\   ", 570, 100);
-    printFrom("   /#########\\     ", 580, 100);
-    printFrom("  |=====O=====|   ",600, 100);
-    printFrom("   \\         /   ",620, 100);
-    printFrom("     '_____'    ",640, 100);
+    printFrom("       ___    ", 570, 100);
+    printFrom("     /#####\\   ", 590, 100);
+    printFrom("   /#########\\     ", 605, 100);
+    printFrom("  |=====O=====|   ",620, 100);
+    printFrom("   \\         /   ",640, 100);
+    printFrom("     '_____'    ",650, 100);
 }
 
 // int completeWordMini(const char word[], const short found[]) {
