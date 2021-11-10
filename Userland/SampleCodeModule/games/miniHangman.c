@@ -14,9 +14,9 @@ char dictionary[][WORDLEN] = {"bulbasaur", "butterfree", "charmander", "marowak"
 int mistakes;
 
 void startMiniHangman() {
-    printcFrom("Welcome to MINI-HANGMAN! Gotta catch 'em all!", 420, 20, YELLOW_COLOR);
-    printcFrom("Guess the pokemon's name in order to win!", 440, 20, YELLOW_COLOR);
-    printcFrom("You have maximum 6 mistakes allowed :o", 460, 20, YELLOW_COLOR);
+    printcFrom("Welcome to MINI-HANGMAN! Gotta catch 'em all!", 420, 30, YELLOW_COLOR);
+    printcFrom("Guess the pokemon's name in order to win!", 440, 30, YELLOW_COLOR);
+    printcFrom("You have maximum 6 mistakes allowed :o", 460, 30, YELLOW_COLOR);
 
     dateInfo info;
     getTime(&info);
@@ -35,7 +35,7 @@ void playMiniHangman(char letter) {
         if (!checkLetter(word, letter, found)) {
             mistakes++;
             if (CHANCES - mistakes > 0) {
-                printstring(490,20,"Attack missed! Remaining attempts: %d", CHANCES - mistakes);
+                printstring(490,30,"Attack missed! Remaining attempts: %d", CHANCES - mistakes);
             }
         }
         else {
@@ -44,11 +44,11 @@ void playMiniHangman(char letter) {
     }
     else {
         if (mistakes == CHANCES) {
-            printstring(560,20,"Oh no! The wild %s fled! Better try next time :(", word);
+            printstring(560,30,"Oh no! The wild %s fled! Better try next time :(", word);
         }
         else {
             printWordMini(word, found);
-            printstring(560,20,"Gotcha! %s was caught! Congrats!", word);
+            printstring(560,30,"Gotcha! %s was caught! Congrats!", word);
             printPokeballMini();
         }
     }
@@ -64,7 +64,7 @@ void printWordMini(const char word[], const short found[]) {
             putCharFrom(word[i], row, col);
         else
             putCharFrom('_', row, col);
-        putCharFrom(' ', row, col + 20);
+        putCharFrom(' ', row, col + 40);
         col += 40;
     }
 }
