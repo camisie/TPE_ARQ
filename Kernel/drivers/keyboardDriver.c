@@ -39,15 +39,22 @@ static int blockMayus = 0;
 static int ctrlPressed = 0;
 uint64_t registers[TOTAL_REGISTERS] = {0};
 
-// int isSpecialKey(int scanCode);
 
-// void preserveRegisters();
-
-// void takeSnapshot(uint64_t *rsp);
-
-int isSpecialKey(int scanCode) {
+int specialKey(int scanCode) {
     return scanCode == ESC || scanCode == L_CTRL ||
            scanCode == LEFT_SHIFT || scanCode == RIGHT_SHIFT || scanCode == L_ALT || scanCode == CAPS_LOCK;
+}
+
+void snapshot(uint64_t *rsp) {
+    for (int i = 0; i < TOTAL_REGISTERS; i++) {
+        registers[i] = rsp[i];
+    }
+}
+
+void fillWithRegisters(uint64_t *buffer) {
+    for (int i = 0; i < TOTAL_REGISTERS; i++) {
+        buffer[i] = registers[i];
+    }
 }
 
 void keyboardHandler(uint64_t *rsp) {
@@ -79,14 +86,14 @@ void keyboardHandler(uint64_t *rsp) {
     }
 
 
-    if (scan_code <= MAX_PRESSED_KEY && !isSpecialKey(scan_code)) {
+    if (scan_code <= MAX_PRESSED_KEY && !specialKey(scan_code)) {
         int secondChar = shift;
         if (IS_ALPHA(pressCodes[scan_code][0])) {
             secondChar = blockMayus ? 1 - shift : shift;
         }
         if (ctrlPressed) {
             if (pressCodes[scan_code][secondChar] == 's')
-                takeSnapshot(rsp);
+                snapshot(rsp);
             return;
         }
         buffer[curr++] = pressCodes[scan_code][secondChar];
@@ -94,29 +101,17 @@ void keyboardHandler(uint64_t *rsp) {
     }
 }
 
-
-int leer = 0;
+int read = 0;
 
 int readBuffer(int len, char *toWrite) {
     for (int i = 0; i < len; i++) {
-        if (buffer[leer] == 0) {
+        if (buffer[read] == 0) {
             return i;
         }
-        toWrite[i] = buffer[leer];
-        buffer[leer] = 0;
-        leer = (leer + 1) % BUFFER_SIZE;
+        toWrite[i] = buffer[read];
+        buffer[read] = 0;
+        read = (read + 1) % BUFFER_SIZE;
     }
     return len;
 }
 
-void takeSnapshot(uint64_t *rsp) {
-    for (int i = 0; i < TOTAL_REGISTERS; i++) {
-        registers[i] = rsp[i];
-    }
-}
-
-void fillWithRegs(uint64_t *buffer) {
-    for (int i = 0; i < TOTAL_REGISTERS; i++) {
-        buffer[i] = registers[i];
-    }
-}

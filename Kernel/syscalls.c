@@ -5,7 +5,9 @@
 #include <keyboardDriver.h>
 #include <timerDriver.h>
 #include <time.h>
-#include <colors.h>
+
+#define WHITE_COLOR 0xFFFFFF
+
 
 int sys_read(int length, char *toRead) {
     return readBuffer(length, toRead);
@@ -27,7 +29,7 @@ void getMem(char *dir, char *dump) {
 }
 
 void getRegisters(uint64_t firstP[]) {
-    fillWithRegs(firstP);
+    fillWithRegisters(firstP);
 }
 
 void sys_clear() {
@@ -35,7 +37,7 @@ void sys_clear() {
 }
 
 void sys_divide() {
-    divideScreen(WHITE);
+    divideScreen(WHITE_COLOR);
 }
 
 int getScreenHeight() {
