@@ -22,11 +22,12 @@ programs commands[] = {{"about",       about,          "Information about the O.
                        {"time",        time,           "Displays the systems current time."},
                        {"inforeg",     infoReg,        "Displays the registers current state."},
                        {"printmem",    printMem,       "Prints on screen the first 32 bytes from a given position."},
-                       {"hangman",     hangman,        "Starts a PVE hangman game. Try hangman help for aditional info."},
+                       {"hangman",     hangman,        "Standalone version of a Pokemon-inspired Hangman"},
                        {"clear",       clear,          "Clears the current screen."},
                        {"exceptionZ",  throwDivZero,   "Throws a divide by zero exception"},
                        {"exceptionOP", throwInvOpCode, "Throws an invalid Operation Code Exception"},
-                       {"games", runGames, "Hangman - Sudoku - Chronometer - Time"}
+                       {"games", runGames, "Hangman - Sudoku - Stopwatch - Time"},
+                       {"pokeball", getPokeball, "Catch a pokemon!"}
 };
 
 int checkArgs(int args, int expected);
@@ -84,13 +85,13 @@ void time(int args, char argv[][25]) {
     dateInfo info;
     getTime(&info);
     char fecha[19] = {0};
-    print("Local date: ");
+    print("Local date & time: ");
     dateToString(&info, fecha, '/', 18);
     print(fecha);
     println("");
 }
 
-void time2(void) {
+void getLocalTime(void) {
     dateInfo info;
     getTime(&info);
     char fecha[19] = {0};
@@ -151,7 +152,7 @@ void runGames() {
 
     int exit = 0;
     while(!exit) {
-        time2();
+        getLocalTime();
         char c = getChar();
         // if(c == '\n')
         //     DELETE_BUFFER;
@@ -173,4 +174,9 @@ void runGames() {
         stopwatch();
     }
     returnToShell();
+}
+
+void getPokeball() {
+    int num = rand() % 20;
+    iChooseYou(num);
 }

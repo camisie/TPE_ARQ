@@ -3,15 +3,9 @@
 
 #include <standardIO.h>
 
-
-int hasPrevGame();
-
 void runHangman(int entry);
 
 void play();
-
-//Lee un int de la entrada standar
-// int getint(const char message[], ... );
 
 char readLetter(void);
 

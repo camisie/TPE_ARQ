@@ -37,8 +37,6 @@ void clearLine(int row, int col) {
 
 void startSudoku() {
     printcFrom("Welcome to SUDOKU!", 450, 690, ORANGE_COLOR);
-    // printcFrom("Guess the pokemon's name in order to win!", 440, 20, YELLOW_COLOR);
-    // printcFrom("You have maximum 6 mistakes allowed :o", 460, 20, YELLOW_COLOR);
     printSudoku(board);
     findNextPos(&xPos, &yPos);
     printstring(675,650,"Enter number for pos {%d, %d}: ", xPos+1, yPos+1);
@@ -57,7 +55,6 @@ void playSudoku(char c) {
     }
     else {
         printcFrom("Good job :) Keep going!", 700, 650, GREEN_COLOR);
-        //printstring(675,650,"Good job :) Keep going!");
         board[xPos][yPos] = num;
         printSudoku(board);
     }
@@ -76,45 +73,6 @@ void printSudoku(int board[N][N]) {
         row += 15;
     }
 }
-
-// int readNumber(int *x, int *y) {
-//     int num;
-//     do {
-//
-//       clearLine(675, 675);
-//       if (*x == QUIT_CODE) {
-//         if(askYesNoQuit()) {
-//           return QUIT_CODE;
-//         }
-//       }
-//       *x -= 1;
-//     } while(*x < 0 || *x >= 9);
-//     clearLine(650, 675);
-//
-//
-//     do {
-//         *y = getint("Enter column number: ", 650, 675);
-//         clearLine(675, 675);
-//         if (*y == QUIT_CODE) {
-//           if(askYesNoQuit()) {
-//             return QUIT_CODE;
-//           }
-//         }
-//         *y -= 1;
-//     } while(*y < 0 || *y >= 9);
-//     clearLine(650, 675);
-//     do {
-//         num = getint("Enter number (1-9): ", 650, 675);
-//         clearLine(675, 675);
-//         if (num == QUIT_CODE) {
-//           if(askYesNoQuit()) {
-//             return QUIT_CODE;
-//           }
-//         }
-//     } while(num <= 0 || num > 9);
-//     clearLine(650, 675);
-//     return num;
-// }
 
 int findNextPos(int *x, int *y) {
     for(int i = 0; i < N; i++) {

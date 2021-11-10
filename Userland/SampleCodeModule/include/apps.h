@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#define PROGRAMS 10
+#define PROGRAMS 11
 
 typedef struct {
     char name[12];
@@ -37,7 +37,9 @@ void about();
 
 void runGames();
 
-void time2(void);
+void getLocalTime(void);
+
+void getPokeball();
 
 
 #endif
