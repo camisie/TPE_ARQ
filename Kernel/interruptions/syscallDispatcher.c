@@ -20,10 +20,6 @@ int syscallDispatcher(uint64_t call, uint64_t firstP, uint64_t secondP, uint64_t
         case SYS_TIME_ID:
             getTime((date) firstP);
             return 0;
-        case SCREEN_HEIGHT_ID:
-            return getScreenHeight();
-        case SCREEN_WIDTH_ID:
-            return getScreenWidth();
         case DIVIDE_SCREEN_ID:
             sys_divide();
             return 0;

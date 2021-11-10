@@ -26,8 +26,8 @@ int getWidth();
 
 void divideScreen();
 
-void setStopwatch(int option);
-
 int getStopwatchTicks();
+
+int getTicksElapsed();
 
 #endif

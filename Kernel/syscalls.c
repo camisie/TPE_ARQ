@@ -29,7 +29,7 @@ void getMem(char *dir, char *dump) {
 }
 
 void getRegisters(uint64_t firstP[]) {
-    fillWithRegisters(firstP);
+    saveRegisters(firstP);
 }
 
 void sys_clear() {
@@ -38,12 +38,4 @@ void sys_clear() {
 
 void sys_divide() {
     divideScreen(WHITE_COLOR);
-}
-
-int getScreenHeight() {
-    return screenHeight();
-}
-
-int getScreenWidth() {
-    return screenWidth();
 }

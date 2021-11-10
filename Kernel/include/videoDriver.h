@@ -9,10 +9,16 @@ int drawChar(int character, int color);
 
 void clearScreen();
 
-int screenHeight();
-
-int screenWidth();
-
 void divideScreen(int color);
+
+void checkPosition();
+
+void shift();
+
+void clearLine(int yPos);
+
+void insertEnter();
+
+void backspace();
 
 #endif

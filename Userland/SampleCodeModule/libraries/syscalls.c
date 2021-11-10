@@ -9,11 +9,7 @@
 #define INFO_REG 8
 #define MEM_DUMP 9
 #define TIME_SYSCALL 10
-#define SET_ALARM 11
-#define SCREEN_HEIGHT 12
-#define SCREEN_WIDTH 13
 #define DIVIDE_SCREEN 14
-#define SET_STOPWATCH 15
 #define STOPWATCH_TICKS 16
 #define TICKS_ELAPSED 17
 
@@ -43,20 +39,8 @@ void memoryDump(char *dir, char *dump) {
     _syscall(MEM_DUMP, dir, dump);
 }
 
-int getHeight() {
-    return _syscall(SCREEN_HEIGHT);
-}
-
-int getWidth() {
-    return _syscall(SCREEN_WIDTH);
-}
-
 void divideScreen() {
      _syscall(DIVIDE_SCREEN);
-}
-
-void setStopwatch(int option) {
-    _syscall(SET_STOPWATCH);
 }
 
 int getStopwatchTicks() {

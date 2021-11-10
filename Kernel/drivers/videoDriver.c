@@ -53,15 +53,7 @@ struct vbe_mode_info_structure {
 
 struct vbe_mode_info_structure *screen_data = (void *) 0x5C00; //VBEModeInfoBlock
 
-void checkPosition();
 
-void shift();
-
-void clearLine(int yPos);
-
-void insertEnter();
-
-void backspace();
 
 void drawPixel(int row, int col, int color) {
     char *currentPosition = (char *) (uint64_t) screen_data->framebuffer + 3 * (row * screen_data->width + col);
@@ -133,14 +125,6 @@ void clearScreen() {
             drawPixel(i, j, BACKGROUND_COLOR);
         }
     }
-}
-
-int screenHeight() {
-    return screen_data->height;
-}
-
-int screenWidth() {
-    return screen_data->width;
 }
 
 void checkPosition() {

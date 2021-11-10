@@ -9,7 +9,7 @@ int readBuffer(int length, char *toWrite);
 
 void snapshot(uint64_t *rsp);
 
-// void fillWithRegs(uint64_t *buffer);
+void saveRegisters(uint64_t *buffer);
 
 extern unsigned char getScancode();
 

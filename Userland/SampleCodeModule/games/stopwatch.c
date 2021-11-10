@@ -11,7 +11,7 @@ void initStopwatch() {
     printstring(30, 20,"- Press 'P' to play/pause");
     printstring(40, 20,"- Press 'R' to reset");
     printstring(50, 20,"Make sure letters entered are in uppercase!");
-    printstring(200, 125, "CHRONOMETER:");
+    printstring(200, 125, "STOPWATCH: ");
     initialTicks = getTicksElapsed();
     currentTicks = initialTicks;
     return;
@@ -26,7 +26,7 @@ void stopwatch() {
     int centiSec = (millis % 1000)/10;
     int secs = (millis % 60000)/1000;
     int mins = (millis % 3600000)/60000;
-    printstring(200, 250,"%d::%d::%d", mins, secs, centiSec);
+    printstring(200, 225,"%d::%d::%d", mins, secs, centiSec);
 }
 
 void resetStopwatch() {

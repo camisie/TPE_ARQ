@@ -51,7 +51,7 @@ void snapshot(uint64_t *rsp) {
     }
 }
 
-void fillWithRegisters(uint64_t *buffer) {
+void saveRegisters(uint64_t *buffer) {
     for (int i = 0; i < TOTAL_REGISTERS; i++) {
         buffer[i] = registers[i];
     }
@@ -66,12 +66,12 @@ void keyboardHandler(uint64_t *rsp) {
         case RIGHT_SHIFT:
             shift = 1;
             break;
-        //shift liberado -> apago el flag    
+        //shift liberado -> apago el flag
         case LEFT_SHIFT + RELEASED_KEY:
         case RIGHT_SHIFT + RELEASED_KEY:
             shift = 0;
             break;
-        //mayuscula    
+        //mayuscula
         case CAPS_LOCK:
             blockMayus = blockMayus ? 0 : 1;
             break;
@@ -114,4 +114,3 @@ int readBuffer(int len, char *toWrite) {
     }
     return len;
 }
-
