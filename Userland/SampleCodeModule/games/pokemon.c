@@ -1,10 +1,3 @@
-//
-//  pokemon.c
-//  ahorcado
-//
-//  Created by Magdalena Flores Levalle on 03/11/2021.
-//
-
 #include <pokemon.h>
 #include <standardIO.h>
 
@@ -23,23 +16,6 @@ void printLogo(void) {
     print("                                   `'                            '-._|\n");
 }
 
-void printMiniLogo(void) {
-  print("              _                              \n");
-  print("  _ __   ___ | | _____ _ __ ___   ___  _ __  \n");
-  print(" | '_ \\ / _ \\| |/ / _ \\ '_ ` _ \\ / _ \\| '_ \\ \n");
-  print(" | |_) | (_) |   <  __/ | | | | | (_) | | | | \n");
-  print(" | .__/ \\___/|_|\\_\\___|_| |_| |_|\\___/|_| |_|\n");
-  print(" |_|    \n");
-}
-
-void printPokeball(void) {
-  print("    *   ____   . \n");
-  print(" \\   .’#####‘.   / \n");
-  print(" .  /#########\\    * \n");
-  print("—  |=====O=====|  — \n");
-  print(" *  \\         /  • \n");
-  print(" /   `•_____•’   \\ \n");
-}
 
 void iChooseYou(int num) {
     if(num == 0){
