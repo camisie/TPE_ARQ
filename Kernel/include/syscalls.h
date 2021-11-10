@@ -21,19 +21,21 @@ int sys_read(int length, char *toRead);
 
 int sys_write(int length, char *toWrite, int row, int col, int color);
 
+void sys_divide();
+
+void sys_clear();
+
 void getTime(date myDate);
 
 void getMem(char *dir, char *dump);
 
 void getRegisters(uint64_t firstP[]);
 
-void sys_clear();
-
 int getScreenHeight();
 
 int getScreenWidth();
 
-void sys_divide();
+
 
 
 #endif

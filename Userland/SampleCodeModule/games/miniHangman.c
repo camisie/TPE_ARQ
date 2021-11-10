@@ -57,7 +57,7 @@ void playMiniHangman(char letter) {
 
 void printWordMini(const char word[], const short found[]) {
     int i;
-    int row = 520, col = 20;
+    int row = 520, col = 40;
     for (i = 0; word[i]; i++)
     {
         if (found[i])
