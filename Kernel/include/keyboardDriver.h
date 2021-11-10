@@ -7,9 +7,9 @@ void keyboardHandler(uint64_t *rsp);
 
 int readBuffer(int length, char *toWrite);
 
-void takeSnapshot(uint64_t *rsp);
+void snapshot(uint64_t *rsp);
 
-void fillWithRegs(uint64_t *buffer);
+// void fillWithRegs(uint64_t *buffer);
 
 extern unsigned char getScancode();
 

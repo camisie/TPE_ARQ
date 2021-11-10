@@ -4,7 +4,8 @@
 #include <registers.h>
 #include <naiveConsole.h>
 #include <font.h>
-#include <colors.h>
+
+#define WHITE_COLOR 0xFFFFFF
 
 
 int printStringFrom(char *string, int length, int row, int col, int color) {
@@ -34,11 +35,11 @@ int printStringFrom(char *string, int length, int row, int col, int color) {
     return printedCharacters;
 }
 
-int printError(char *string) {
-    printcln(string, RED);
-    return 0;
+// int printError(char *string) {
+//     printcln(string, RED);
+//     return 0;
 
-}
+// }
 
 void println(char *string) {
     print(string);
@@ -46,7 +47,7 @@ void println(char *string) {
 }
 
 void print(char *string) {
-    printStringFrom(string, strlen(string), -1, -1, WHITE);
+    printStringFrom(string, strlen(string), -1, -1, WHITE_COLOR);
 }
 
 void printc(char *string, int color) {

@@ -2,11 +2,12 @@
 #include <stdint.h>
 #include <registers.h>
 #include <naiveConsole.h>
-#include <colors.h>
 
 #define ZERO_EXCEPTION_ID 0
 #define INVALID_OPCODE_ID 6
 #define BUFFER64_BITS 20
+#define RED_COLOR 0xFF0000
+#define WHITE_COLOR 0xFFFFFF
 
 static void zeroDivision();
 static void invalidOpcode();
@@ -25,11 +26,11 @@ void exceptionDispatcher(int exception, uint64_t *rsp) {
 }
 
 static void zeroDivision() {
-    printcln("Cannot divide by 0.", RED);
+    printcln("Cannot divide by 0.", RED_COLOR);
 }
 
 static void invalidOpcode() {
-    printcln("Invalid operation code.",RED);
+    printcln("Invalid operation code.",RED_COLOR);
 }
 
 void printRegisters(uint64_t *rsp) {
@@ -39,9 +40,9 @@ void printRegisters(uint64_t *rsp) {
                        "RAX", "RIP", "CS ", "FLG", "RSP"};
 
     for (int i = 0; i < TOTAL_REGISTERS; i++) {
-        printc(registerNames[i], GRAY);
-        printc(": ", GRAY);
+        printc(registerNames[i], WHITE_COLOR);
+        printc(": ", WHITE_COLOR);
         turnToBaseN(rsp[i], 16, buffer, BUFFER64_BITS);
-        printcln(buffer, WHITE);
+        printcln(buffer, WHITE_COLOR);
     }
 }
